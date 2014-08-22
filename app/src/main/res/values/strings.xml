@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">UAI</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="navigation_items">
+        <item>User</item>
+        <item>Inicio</item>
+        <item>Horarios</item>
+        <item>Mensajes</item>
+        <item>Calendario</item>
+        <item>Cursos</item>
+        <item>Deportes</item>
+        <item>Buses</item>
+        <item>Bibioteca</item>
+        <item>FAQ Y REGLAMENTOS</item>
+        <item>CONFIGURACIÓN</item>
+        <item>CERRAR SESIÓN</item>
+    </string-array>
+
+    <string-array name="event_locations">
+        <item>pregrado</item>
+        <item>vina</item>
+        <item>postgrado</item>
+    </string-array>
+
+    <string-array name="event_locations_names">
+        <item>Pregrado</item>
+        <item>Vina</item>
+        <item>Postgrado</item>
+    </string-array>
+
+
+</resources>

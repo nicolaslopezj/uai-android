@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/slideImageView"
+        android:adjustViewBounds="true"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:src="@drawable/welcome_image_1"
+        android:scaleType="centerCrop"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/welcome_gradient"
+        android:alpha="0.5"/>
+
+    <TextView
+        android:id="@+id/slideToStartTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginRight="10dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:text="Desliza Para Comenzar    "
+        android:shadowColor="@android:color/black"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"/>
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@id/slideToStartTextView"
+        android:layout_alignTop="@id/slideToStartTextView"
+        android:layout_marginTop="-2dp"
+        android:layout_marginLeft="255dp"
+        android:rotation="180"
+        android:src="@drawable/ic_arrow_right"/>
+
+    <TextView
+        android:id="@+id/messageTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/slideToStartTextView"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:text="Tu nueva app móvil de la UAI es lo que estabas esperando, explora con nosotros las nuevas funcionalidades..."
+        android:shadowColor="@android:color/black"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"/>
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/messageTextView"
+        android:layout_marginBottom="110dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:text="Bienvenido"
+        android:shadowColor="@android:color/black"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2" />
+
+</RelativeLayout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/slideImageView"
+        android:adjustViewBounds="true"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:src="@drawable/welcome_image_4"
+        android:scaleType="centerCrop"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/welcome_gradient"
+        android:alpha="0.5"/>
+
+    <RelativeLayout
+        android:id="@+id/whiteBackground"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:layout_centerVertical="true"
+        android:background="#CCFFFFFF">
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:text="Ingresar"
+            android:id="@+id/loginButton"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="20dp"
+            android:hint="Email UAI"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/inputEmail"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/inputPassword"
+            android:layout_below="@+id/inputEmail"
+            android:layout_alignLeft="@+id/inputEmail"
+            android:layout_alignRight="@+id/inputEmail"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/messageTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/whiteBackground"
+        android:layout_marginTop="230dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:text="Tus datos de acceso son proporcionados por la universidad y son los mismos que utilizas en todos los servicios UAI"
+        android:shadowColor="@android:color/black"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"/>
+
+
+
+</RelativeLayout>

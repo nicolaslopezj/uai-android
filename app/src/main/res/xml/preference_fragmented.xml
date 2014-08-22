@@ -1,0 +1,49 @@
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="Horarios de las Pantallas">
+
+        <ListPreference
+            android:key="events_location"
+            android:title="Sede"
+            android:summary="Elige la sede que quieres que muestre los horarios."
+            android:defaultValue="pregrado"
+            android:entries="@array/event_locations_names"
+            android:entryValues="@array/event_locations"/>
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Subscripciones a Mensajes">
+
+        <CheckBoxPreference
+            android:key="messages_pregrado"
+            android:title="Pregrado"
+            android:summary="Lorem ipsum dolor sit amet, consectetuer adipiscing elit." />
+        <CheckBoxPreference
+            android:key="messages_eventos_uai"
+            android:title="Eventos UAI"
+            android:summary="Lorem ipsum dolor sit amet, consectetuer adipiscing elit." />
+        <CheckBoxPreference
+            android:key="messages_a_estudiantiles"
+            android:title="Asuntos Estudiantiles"
+            android:summary="Lorem ipsum dolor sit amet, consectetuer adipiscing elit." />
+        <CheckBoxPreference
+            android:key="messages_deportes"
+            android:title="Deportes"
+            android:summary="Lorem ipsum dolor sit amet, consectetuer adipiscing elit." />
+        <CheckBoxPreference
+            android:key="messages_finanzas"
+            android:title="Finanzas"
+            android:summary="Lorem ipsum dolor sit amet, consectetuer adipiscing elit." />
+        <CheckBoxPreference
+            android:key="messages_facultades"
+            android:title="Facultades"
+            android:summary="Lorem ipsum dolor sit amet, consectetuer adipiscing elit." />
+
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

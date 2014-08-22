@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="6dp"
+    android:background="#fcfcfc">
+
+    <TextView
+        android:id="@+id/typeTextView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="90dp"
+        android:layout_marginBottom="0dp"
+        android:maxLines="1"
+        android:textSize="14sp"
+        android:text="Ayudantía"
+        android:textColor="@android:color/holo_blue_dark"
+        android:ellipsize="end"/>
+
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/typeTextView"
+        android:layout_marginRight="90dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="3dp"
+        android:maxLines="3"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="Algebra I"
+        android:textColor="@android:color/black"
+        android:ellipsize="end"/>
+
+    <TextView
+        android:id="@+id/extrasTextView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameTextView"
+        android:layout_marginRight="90dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="6dp"
+        android:maxLines="3"
+        android:textSize="14sp"
+        android:text="Sec. 3 - Tomás Wiedman"
+        android:textColor="@android:color/secondary_text_light"
+        android:ellipsize="end"/>
+
+    <TextView
+        android:id="@+id/dateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="3dp"
+        android:maxLines="1"
+        android:textSize="14sp"
+        android:text="13:00 - 14:10"
+        android:textColor="@android:color/secondary_text_light"
+        android:ellipsize="end"/>
+
+    <TextView
+        android:id="@+id/roomTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dateTextView"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="6dp"
+        android:maxLines="1"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="A-103"
+        android:textColor="@android:color/black"
+        android:ellipsize="end"/>
+
+    <View
+        android:id="@+id/bottomSeparatorLine"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="6dp"
+        android:background="#d5d5d5"/>
+</RelativeLayout>

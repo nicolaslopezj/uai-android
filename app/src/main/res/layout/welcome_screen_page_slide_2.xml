@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/slideImageView"
+        android:adjustViewBounds="true"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:src="@drawable/welcome_image_2"
+        android:scaleType="centerCrop"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/welcome_gradient"
+        android:alpha="0.5"/>
+
+    <TextView
+        android:id="@+id/messageTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="74dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:text="...Ahora podrás organizar mejor tu tiempo, accediendo a tu calendario de clases desde tu smartphone..."
+        android:shadowColor="@android:color/black"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"/>
+
+</RelativeLayout>

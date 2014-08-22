@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="robospice-google-http-client-1.4.13">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.octo.android.robospice/robospice-google-http-client/1.4.13/6aca122249964be0a30f216103e771b2e46d3da4/robospice-google-http-client-1.4.13.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.octo.android.robospice/robospice-google-http-client/1.4.13/9fc2d0c7f781b4aafcc12a4fc5eb6b0feb1771d8/robospice-google-http-client-1.4.13-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

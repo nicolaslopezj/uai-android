@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#fcfcfc">
+
+    <TextView
+        android:id="@+id/fromTextView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="3dp"
+        android:maxLines="1"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="Deportes"
+        android:textColor="@android:color/black"
+        android:ellipsize="end"/>
+
+    <View android:layout_width="13dp"
+        android:layout_height="13dp"
+        android:layout_alignTop="@id/fromTextView"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="9.5dp"
+        android:background="@drawable/message_unread_circle"/>
+
+    <TextView
+        android:id="@+id/previewTextView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fromTextView"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="5dp"
+        android:maxLines="3"
+        android:textSize="15sp"
+        android:text="Se anuncia a los alumnos que se encuentran habilitados los nuevos lockers con el nuevo sistema de lector biometrico de retina."
+        android:textColor="@android:color/black"
+        android:ellipsize="end"/>
+
+
+
+    <TextView
+        android:id="@+id/dateTextView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/previewTextView"
+        android:layout_alignLeft="@id/previewTextView"
+        android:layout_alignRight="@id/previewTextView"
+        android:layout_marginBottom="5dp"
+        android:maxLines="3"
+        android:textSize="13sp"
+        android:text="06/05/2014 | 14:46"
+        android:textColor="#666666"
+        android:ellipsize="end"/>
+
+    <View
+        android:id="@+id/bottomSeparatorLine"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/dateTextView"
+        android:layout_marginTop="5dp"
+        android:background="#d5d5d5"/>
+</RelativeLayout>

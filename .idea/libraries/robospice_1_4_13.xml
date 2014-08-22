@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="robospice-1.4.13">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.octo.android.robospice/robospice/1.4.13/eb9f563caf8fcbe62b5f11bb06330f671f8473fa/robospice-1.4.13.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.octo.android.robospice/robospice/1.4.13/dc4d88dadcd76671fd1146752bb4dc4ccca8d460/robospice-1.4.13-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
