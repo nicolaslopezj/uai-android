@@ -15,6 +15,10 @@ public class BaseFragment extends Fragment {
     protected Activity activity;
     protected SpiceManager spiceManager = new SpiceManager(JacksonGoogleHttpClientSpiceService.class);
 
+    protected void showError(String description) {
+
+    }
+
     @Override
     public void onStart() {
         spiceManager.start(activity.getApplicationContext());

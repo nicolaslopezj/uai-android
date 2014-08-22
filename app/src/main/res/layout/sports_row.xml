@@ -30,7 +30,7 @@
         android:ellipsize="end"/>
 
     <TextView
-        android:id="@+id/dateTextView"
+        android:id="@+id/teacherTextView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/nameTextView"
@@ -47,9 +47,7 @@
         android:id="@+id/bottomSeparatorLine"
         android:layout_width="fill_parent"
         android:layout_height="1dp"
-        android:layout_below="@id/dateTextView"
+        android:layout_below="@id/teacherTextView"
         android:layout_marginTop="5dp"
         android:background="#d5d5d5"/>
-
-
 </RelativeLayout>
