@@ -89,6 +89,7 @@ public class Events extends BaseFragment {
         public void onRequestFailure(SpiceException e) {
             //update your UI
             Log.v("Request Error", e.toString());
+            showError("Ocurrió un error al descargar los datos");
             mPullToRefreshLayout.setRefreshComplete();
         }
 

@@ -2,10 +2,12 @@ package cl.uai.uai.api.json;
 
 import com.google.api.client.util.Key;
 
+import java.io.Serializable;
+
 /**
  * Created by nicolaslopezj on 21-08-14.
  */
-public class Sport {
+public class Sport implements Serializable {
 
     @Key
     public Integer id;
@@ -26,7 +28,7 @@ public class Sport {
     public String name;
 
     @Key
-    public Boolean reserved;
+    public Boolean reserverd;
 
     @Key
     public String rsvp_until;

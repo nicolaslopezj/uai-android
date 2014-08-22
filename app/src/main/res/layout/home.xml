@@ -10,7 +10,7 @@
         android:id="@+id/homePager"
         android:layout_width="match_parent"
         android:layout_height="230dp"
-        android:background="@android:color/white" />
+        android:background="#f3f3f3" />
 
     <com.viewpagerindicator.CirclePageIndicator
         android:id="@+id/indicator"

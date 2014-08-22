@@ -2,10 +2,12 @@ package cl.uai.uai.api.json;
 
 import com.google.api.client.util.Key;
 
+import java.io.Serializable;
+
 /**
  * Created by nicolaslopezj on 18-08-14.
  */
-public class Message {
+public class Message implements Serializable {
 
     @Key
     public Integer id;

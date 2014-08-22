@@ -49,4 +49,6 @@ dependencies {
     }
     compile 'com.google.code.gson:gson:2.3'
     compile 'com.github.chrisbanes.actionbarpulltorefresh:library:+'
+    compile 'com.github.dmytrodanylyk.android-process-button:library:1.0.1'
+    compile 'com.daimajia.numberprogressbar:library:1.1@aar'
 }

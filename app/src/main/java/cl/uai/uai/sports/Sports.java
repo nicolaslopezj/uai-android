@@ -1,6 +1,7 @@
 package cl.uai.uai.sports;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.octo.android.robospice.persistence.DurationInMillis;
 import com.octo.android.robospice.persistence.exception.SpiceException;
@@ -18,6 +20,7 @@ import cl.uai.uai.R;
 import cl.uai.uai.api.SportsIndexRequest;
 import cl.uai.uai.api.json.Sport;
 import cl.uai.uai.main.BaseFragment;
+import cl.uai.uai.welcome.WelcomeSlidePagerActivity;
 import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
 import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout;
 import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
@@ -31,6 +34,14 @@ public class Sports extends BaseFragment {
     protected ListView itemsListView;
     protected ItemsArrayAdapter adapter;
     public Sport[] sports;
+    public Boolean hasReserved;
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mPullToRefreshLayout.setRefreshing(true);
+        performRequest();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -53,11 +64,6 @@ public class Sports extends BaseFragment {
                     }
                 })
                 .setup(mPullToRefreshLayout);
-
-        if (savedInstanceState == null) {
-            mPullToRefreshLayout.setRefreshing(true);
-            performRequest();
-        }
 
         return layout;
     }
@@ -83,6 +89,7 @@ public class Sports extends BaseFragment {
             //update your UI
             Log.v("Request Error", e.toString());
             mPullToRefreshLayout.setRefreshing(false);
+            showError("Ocurrió un error al descargar los datos");
         }
 
         @Override
@@ -120,12 +127,30 @@ public class Sports extends BaseFragment {
             TextView teacherTextView = (TextView) rowView.findViewById(R.id.teacherTextView);
             teacherTextView.setText(sport.led_by);
 
+            TextView reservedTextView = (TextView) rowView.findViewById(R.id.reservedTextView);
+            reservedTextView.setText(sport.reserverd ? "RESERVADO" : sport.available + "/" + sport.capacity);
+
+            if (sport.reserverd) {
+                hasReserved = true;
+            }
 
             rowView.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View view) {
                     //setContent(identifier);
+                    if (sport.available < 1) {
+                        return;
+                    }
+
+                    if  (hasReserved && !sport.reserverd) {
+                        showError("Ya tienes una reserva");
+                        return;
+                    }
+
+                    Intent intent = new Intent(activity, SportsDetail.class);
+                    intent.putExtra("Sport", sport);
+                    activity.startActivity(intent);
                 }
             });
 

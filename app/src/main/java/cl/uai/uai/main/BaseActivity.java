@@ -2,24 +2,20 @@ package cl.uai.uai.main;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.support.v4.app.Fragment;
 import android.widget.Toast;
 
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.octo.android.robospice.JacksonGoogleHttpClientSpiceService;
 import com.octo.android.robospice.SpiceManager;
 
 /**
- * Created by nicolaslopezj on 18-08-14.
+ * Created by nicolaslopezj on 22-08-14.
  */
-public class BaseFragment extends Fragment {
+public class BaseActivity extends Activity{
 
-    protected Activity activity;
     protected SpiceManager spiceManager = new SpiceManager(JacksonGoogleHttpClientSpiceService.class);
 
     protected void showError(String description) {
-        Context context = activity.getApplicationContext();
+        Context context = getApplicationContext();
         CharSequence text = description;
         int duration = Toast.LENGTH_SHORT;
 
@@ -29,7 +25,7 @@ public class BaseFragment extends Fragment {
 
     @Override
     public void onStart() {
-        spiceManager.start(activity.getApplicationContext());
+        spiceManager.start(getApplicationContext());
         super.onStart();
     }
 
@@ -37,12 +33,6 @@ public class BaseFragment extends Fragment {
     public void onStop() {
         spiceManager.shouldStop();
         super.onStop();
-    }
-
-    @Override
-    public void onAttach(Activity _activity) {
-        super.onAttach(_activity);
-        activity = _activity;
     }
 
 }

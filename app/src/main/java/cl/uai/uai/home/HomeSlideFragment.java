@@ -35,7 +35,6 @@ public class HomeSlideFragment extends BaseFragment {
 
     public HomeSlideFragment() {
         options = new DisplayImageOptions.Builder()
-                .showImageOnLoading(R.drawable.welcome_image_1)
                 .cacheInMemory(true)
                 .cacheOnDisk(true)
                 .considerExifParams(true)

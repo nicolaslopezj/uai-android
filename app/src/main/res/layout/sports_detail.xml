@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content" android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/primary_text_light"
+        android:text="Basketball"/>
+
+    <TextView
+        android:id="@+id/teacherTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameTextView"
+        android:layout_marginTop="3dp"
+        android:layout_alignLeft="@id/nameTextView"
+        android:layout_marginRight="5dp"
+        android:textColor="@android:color/secondary_text_light"
+        android:textSize="14sp"
+        android:text="Alvaro Enriquez Soto"/>
+
+    <TextView
+        android:id="@+id/locationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/teacherTextView"
+        android:layout_alignLeft="@id/nameTextView"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="5dp"
+        android:textColor="#666666"
+        android:textSize="14sp"
+        android:text="Sala de máquinas"/>
+
+    <TextView
+        android:id="@+id/availableTextView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/locationTextView"
+        android:layout_alignLeft="@id/nameTextView"
+        android:layout_alignRight="@id/nameTextView"
+        android:layout_marginBottom="3dp"
+        android:layout_marginTop="15dp"
+        android:textColor="@android:color/secondary_text_light_nodisable"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:text="14 de 60 cupos disponibles"/>
+
+    <com.daimajia.numberprogressbar.NumberProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/availableTextView"
+        android:layout_alignLeft="@id/nameTextView"
+        android:layout_alignRight="@id/nameTextView"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        style="@style/NumberProgressBar_Relax_Blue"/>
+
+    <com.dd.processbutton.iml.ActionProcessButton
+        android:id="@+id/actionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progressBar"
+        android:layout_alignLeft="@id/nameTextView"
+        android:layout_alignRight="@id/nameTextView"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/white"
+        android:text="Reservar"
+        custom:pb_colorComplete="@color/green_complete"
+        custom:pb_colorNormal="@android:color/holo_blue_light"
+        custom:pb_colorPressed="@android:color/holo_blue_dark"
+        custom:pb_colorProgress="@color/purple_progress"
+        custom:pb_textComplete="Reservado"
+        custom:pb_textProgress="Cargando"
+        custom:pb_textError="Error"
+        custom:pb_colorError="@color/red_error" />
+
+</RelativeLayout>

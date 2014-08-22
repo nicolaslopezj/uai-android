@@ -1,6 +1,7 @@
 package cl.uai.uai.messages;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ import cl.uai.uai.api.HomeImagesRequest;
 import cl.uai.uai.api.MessagesIndexRequest;
 import cl.uai.uai.api.json.Message;
 import cl.uai.uai.main.BaseFragment;
+import cl.uai.uai.sports.SportsDetail;
 import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
 import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout;
 import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
@@ -88,6 +90,7 @@ public class Messages extends BaseFragment {
             //update your UI
             Log.v("Request Error", e.toString());
             mPullToRefreshLayout.setRefreshing(false);
+            showError("Ocurrió un error al descargar los datos");
         }
 
         @Override
@@ -130,6 +133,9 @@ public class Messages extends BaseFragment {
                 @Override
                 public void onClick(View view) {
                     //setContent(identifier);
+                    Intent intent = new Intent(activity, MessagesDetail.class);
+                    intent.putExtra("Message", message);
+                    activity.startActivity(intent);
                 }
             });
 
