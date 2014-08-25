@@ -10,6 +10,8 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.octo.android.robospice.JacksonGoogleHttpClientSpiceService;
 import com.octo.android.robospice.SpiceManager;
 
+import cl.uai.uai.menu.Main;
+
 /**
  * Created by nicolaslopezj on 18-08-14.
  */
@@ -17,6 +19,13 @@ public class BaseFragment extends Fragment {
 
     protected Activity activity;
     protected SpiceManager spiceManager = new SpiceManager(JacksonGoogleHttpClientSpiceService.class);
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Main menu = (Main) activity;
+        menu.backOnMenuClick = false;
+    }
 
     protected void showError(String description) {
         Context context = activity.getApplicationContext();

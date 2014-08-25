@@ -3,7 +3,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="6dp"
+    android:paddingTop="8dp"
     android:background="#fcfcfc">
 
     <TextView
@@ -29,7 +29,6 @@
         android:layout_marginBottom="3dp"
         android:maxLines="3"
         android:textSize="18sp"
-        android:textStyle="bold"
         android:text="Algebra I"
         android:textColor="@android:color/black"
         android:ellipsize="end"
@@ -42,11 +41,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/nameTextView"
         android:layout_marginLeft="15dp"
-        android:layout_marginBottom="6dp"
+        android:layout_marginBottom="15dp"
         android:maxLines="3"
-        android:textSize="14sp"
+        android:textSize="13sp"
         android:text="Sec. 3 - Tomás Wiedman"
-        android:textColor="@android:color/secondary_text_light"
+        android:textColor="#ff515151"
         android:ellipsize="end"
         android:layout_alignRight="@+id/nameTextView"
         android:layout_alignEnd="@+id/nameTextView" />
@@ -59,11 +58,11 @@
         android:layout_alignParentRight="true"
         android:layout_marginTop="2dp"
         android:layout_marginRight="15dp"
-        android:layout_marginBottom="3dp"
+        android:layout_marginBottom="5dp"
         android:maxLines="1"
-        android:textSize="14sp"
+        android:textSize="13sp"
         android:text="13:00 - 14:10"
-        android:textColor="@android:color/secondary_text_light"
+        android:textColor="#ff515151"
         android:ellipsize="end"/>
 
     <TextView
@@ -73,12 +72,17 @@
         android:layout_below="@id/dateTextView"
         android:layout_alignParentRight="true"
         android:layout_marginRight="15dp"
-        android:layout_marginBottom="6dp"
+        android:layout_marginBottom="15dp"
         android:maxLines="1"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textStyle="bold"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:background="@drawable/sport_reserved_text"
         android:text="A-103"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:ellipsize="end"/>
 
     <View
@@ -86,6 +90,5 @@
         android:layout_width="fill_parent"
         android:layout_height="1dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="6dp"
         android:background="#d5d5d5"/>
 </RelativeLayout>

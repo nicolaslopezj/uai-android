@@ -1,10 +1,13 @@
 package cl.uai.uai.messages;
 
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.TaskStackBuilder;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,6 +27,7 @@ import cl.uai.uai.api.HomeImagesRequest;
 import cl.uai.uai.api.MessagesIndexRequest;
 import cl.uai.uai.api.json.Message;
 import cl.uai.uai.main.BaseFragment;
+import cl.uai.uai.sports.Sports;
 import cl.uai.uai.sports.SportsDetail;
 import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
 import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout;
@@ -136,6 +140,7 @@ public class Messages extends BaseFragment {
                     Intent intent = new Intent(activity, MessagesDetail.class);
                     intent.putExtra("Message", message);
                     activity.startActivity(intent);
+                    //activity.overridePendingTransition(R.anim.slidein_right, R.anim.fadeout);
                 }
             });
 

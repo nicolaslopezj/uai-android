@@ -1,6 +1,7 @@
 package cl.uai.uai.menu;
 
 import android.app.ActionBar;
+import android.content.Context;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.content.Intent;
@@ -9,7 +10,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import cl.uai.uai.buses.Buses;
 import cl.uai.uai.configuration.Configuration;
 import cl.uai.uai.events.Events;
 import cl.uai.uai.home.Home;
@@ -34,6 +37,8 @@ public class Main extends FragmentActivity implements NavigationDrawerFragment.N
     private CharSequence mTitle;
     public String identifier;
 
+    public boolean backOnMenuClick = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +61,7 @@ public class Main extends FragmentActivity implements NavigationDrawerFragment.N
         String[] values = getResources().getStringArray(R.array.navigation_items);
         String _identifier = values[position];
 
+        backOnMenuClick = false;
 
         if (_identifier.equals("Inicio")) {
             identifier = _identifier;
@@ -84,6 +90,13 @@ public class Main extends FragmentActivity implements NavigationDrawerFragment.N
             fragmentManager
                     .beginTransaction()
                     .replace(R.id.container, new Sports())
+                    .commit();
+        } else if (_identifier.equals("Buses")) {
+            identifier = _identifier;
+            mTitle = "Buses";
+            fragmentManager
+                    .beginTransaction()
+                    .replace(R.id.container, new Buses())
                     .commit();
         } else if (_identifier.equals("CONFIGURACIÓN")) {
             Intent intent = new Intent(this, Configuration.class);
@@ -115,8 +128,8 @@ public class Main extends FragmentActivity implements NavigationDrawerFragment.N
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
+        int id = item.getItemId();
         return super.onOptionsItemSelected(item);
     }
 

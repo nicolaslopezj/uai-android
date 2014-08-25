@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.octo.android.robospice.persistence.DurationInMillis;
 import com.octo.android.robospice.persistence.exception.SpiceException;
@@ -20,7 +19,6 @@ import cl.uai.uai.R;
 import cl.uai.uai.api.SportsIndexRequest;
 import cl.uai.uai.api.json.Sport;
 import cl.uai.uai.main.BaseFragment;
-import cl.uai.uai.welcome.WelcomeSlidePagerActivity;
 import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
 import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout;
 import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
@@ -39,7 +37,7 @@ public class Sports extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        mPullToRefreshLayout.setRefreshing(true);
+        //mPullToRefreshLayout.setRefreshing(true);
         performRequest();
     }
 
@@ -64,6 +62,9 @@ public class Sports extends BaseFragment {
                     }
                 })
                 .setup(mPullToRefreshLayout);
+
+        mPullToRefreshLayout.setRefreshing(true);
+        performRequest();
 
         return layout;
     }
@@ -151,6 +152,7 @@ public class Sports extends BaseFragment {
                     Intent intent = new Intent(activity, SportsDetail.class);
                     intent.putExtra("Sport", sport);
                     activity.startActivity(intent);
+                    activity.overridePendingTransition(R.anim.slidein_up, R.anim.slideout_down);
                 }
             });
 

@@ -40,6 +40,12 @@ public class SportsDetail extends BaseActivity {
     private TextView availableTextView;
 
     @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slidein_up, R.anim.slideout_down);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         sport = (Sport) getIntent().getSerializableExtra("Sport");

@@ -22,12 +22,17 @@
         </activity>
         <activity android:name=".welcome.WelcomeSlidePagerActivity" />
         <activity android:name=".configuration.Configuration" />
-        <activity android:name=".menu.Main" />
+        <activity android:name=".menu.Main"
+                  android:configChanges="keyboardHidden|orientation|screenSize"/>
         <activity android:name=".sports.SportsDetail" android:theme="@style/sportsDialog" />
 
         <activity
             android:name=".messages.MessagesDetail"
-            android:label="Mensaje">
+            android:label="Mensaje"
+            android:parentActivityName=".menu.Main" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".menu.Main" />
         </activity>
 
         <service
