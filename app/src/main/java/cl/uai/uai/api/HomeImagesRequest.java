@@ -17,7 +17,7 @@ public class HomeImagesRequest extends GoogleHttpClientSpiceRequest<String[]> {
     @Override
     public String[] loadDataFromNetwork() throws Exception {
 
-        String url = String.format("http://nicolaslopez.co/uploads/files/home_images.json");
+        String url = String.format("http://webapi.uai.cl/inetmobile/home_images?token=sdasd");
 
         HttpRequest request = getHttpRequestFactory().buildGetRequest(new GenericUrl(url));
         request.setParser(new JacksonFactory().createJsonObjectParser());

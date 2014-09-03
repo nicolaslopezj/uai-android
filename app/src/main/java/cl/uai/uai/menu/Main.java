@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import cl.uai.uai.buses.Buses;
 import cl.uai.uai.configuration.Configuration;
+import cl.uai.uai.courses.Courses;
 import cl.uai.uai.events.Events;
 import cl.uai.uai.home.Home;
 import cl.uai.uai.R;
@@ -83,6 +84,13 @@ public class Main extends FragmentActivity implements NavigationDrawerFragment.N
             fragmentManager
                     .beginTransaction()
                     .replace(R.id.container, new Messages())
+                    .commit();
+        } else if (_identifier.equals("Cursos")) {
+            identifier = _identifier;
+            mTitle = "Cursos";
+            fragmentManager
+                    .beginTransaction()
+                    .replace(R.id.container, new Courses())
                     .commit();
         } else if (_identifier.equals("Deportes")) {
             identifier = _identifier;

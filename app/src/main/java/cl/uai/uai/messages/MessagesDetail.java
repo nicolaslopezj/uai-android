@@ -47,7 +47,6 @@ public class MessagesDetail extends BaseActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         onBackPressed();
-        showError("dahhh");
         return true;
 
         //return super.onOptionsItemSelected(item);

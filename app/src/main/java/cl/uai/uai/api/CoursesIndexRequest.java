@@ -5,34 +5,35 @@ import com.google.api.client.http.HttpRequest;
 import com.google.api.client.json.jackson.JacksonFactory;
 import com.octo.android.robospice.request.googlehttpclient.GoogleHttpClientSpiceRequest;
 
+import cl.uai.uai.api.json.CoursesIndexResponse;
+import cl.uai.uai.api.json.CoursesPeriod;
 import cl.uai.uai.api.json.Message;
 import cl.uai.uai.api.json.MessagesParser;
 import cl.uai.uai.api.json.MessagesResponse;
 
 /**
- * Created by nicolaslopezj on 18-08-14.
+ * Created by nicolaslopezj on 01-09-14.
  */
-public class MessagesIndexRequest  extends GoogleHttpClientSpiceRequest<Message[]> {
+public class CoursesIndexRequest extends GoogleHttpClientSpiceRequest<CoursesPeriod[]> {
 
-    public MessagesIndexRequest() {
-        super(Message[].class);
+    public CoursesIndexRequest() {
+        super(CoursesPeriod[].class);
     }
 
     @Override
-    public Message[] loadDataFromNetwork() throws Exception {
+    public CoursesPeriod[] loadDataFromNetwork() throws Exception {
 
-        String url = String.format("http://webapi.uai.cl/inetmobile/messages?token=1234&since=1234");
+        String url = String.format("http://webapi.uai.cl/inetmobile/courses?token=1243");
 
         HttpRequest request = getHttpRequestFactory().buildGetRequest(new GenericUrl(url));
         request.setParser(new JacksonFactory().createJsonObjectParser());
 
-        MessagesResponse response = request.execute().parseAs(MessagesResponse.class);
-        Message[] messages = MessagesParser.parse(response);
-        return messages;
+        CoursesPeriod[] periods = request.execute().parseAs(CoursesIndexResponse.class).courses;
+        return periods;
     }
 
     public String createCacheKey() {
-        return "messages";
+        return "courses_index";
     }
 
 }

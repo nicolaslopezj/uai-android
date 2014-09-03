@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class Message implements Serializable {
 
     @Key
-    public Integer id;
+    public String id;
 
     @Key
     public String body;
