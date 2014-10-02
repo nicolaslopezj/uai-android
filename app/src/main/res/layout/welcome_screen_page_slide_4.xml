@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:id="@+id/content"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -27,16 +28,27 @@
         android:layout_height="200dp"
         android:layout_centerVertical="true"
         android:background="#CCFFFFFF">
-        <Button
-            android:layout_width="fill_parent"
+
+        <com.dd.processbutton.iml.ActionProcessButton
+            android:id="@+id/actionButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
-            android:layout_marginRight="100dp"
-            android:text="Ingresar"
-            android:id="@+id/loginButton"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="20dp"
+            android:textColor="@android:color/white"
+            android:text="Ingresar"
+            custom:pb_colorComplete="@color/green_complete"
+            custom:pb_colorNormal="@android:color/holo_blue_light"
+            custom:pb_colorPressed="@android:color/holo_blue_dark"
+            custom:pb_colorProgress="@color/purple_progress"
+            custom:pb_textComplete="Ingresar"
+            custom:pb_textProgress="Cargando"
+            custom:pb_textError="Error"
+            custom:pb_colorError="@color/red_error"
+            android:layout_alignRight="@+id/inputPassword"
+            android:layout_alignEnd="@+id/inputPassword"
+            android:layout_alignLeft="@+id/inputPassword"
+            android:layout_alignStart="@+id/inputPassword" />
 
         <EditText
             android:layout_width="fill_parent"

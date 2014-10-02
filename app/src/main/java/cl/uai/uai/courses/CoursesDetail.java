@@ -2,6 +2,7 @@ package cl.uai.uai.courses;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import cl.uai.uai.R;
@@ -18,10 +19,21 @@ public class CoursesDetail extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.messages_detail);
+        setContentView(R.layout.courses_detail);
 
         course = (Course) getIntent().getSerializableExtra("Course");
-        setTitle(course.name);
+        setTitle(course.getRealName());
+
+        TextView nameTextView = (TextView) findViewById(R.id.nameTextView);
+        nameTextView.setText(course.getRealName());
+
+        TextView sectionTextView = (TextView) findViewById(R.id.sectionTextView);
+        if (course.getSection() != null) {
+            sectionTextView.setVisibility(View.VISIBLE);
+            sectionTextView.setText("Sección " + course.getSection());
+        } else {
+            sectionTextView.setVisibility(View.GONE);
+        }
     }
 
     @Override

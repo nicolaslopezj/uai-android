@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <FrameLayout
+        android:id="@+id/infoBackgroundView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff1f1f1">
+
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="3dp"
+            android:maxLines="1"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:text="Termodinamica"
+            android:textColor="@android:color/black"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/sectionTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="8dp"
+            android:maxLines="3"
+            android:textSize="14sp"
+            android:text="Sección 3"
+            android:textColor="#666666"
+            android:ellipsize="end"/>
+
+    </FrameLayout>
+
+
+
+
+
+    <TextView
+        android:id="@+id/contentTextView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/infoBackgroundView"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="15dp"
+        android:maxLines="99999"
+        android:textSize="16sp"
+        android:text="Api con problemas"
+        android:textColor="@android:color/black"
+        android:ellipsize="end"/>
+
+
+
+
+</RelativeLayout>

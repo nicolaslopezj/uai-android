@@ -15,4 +15,17 @@ public class Course implements Serializable {
     @Key
     public String name;
 
+    public String getRealName() {
+        String[] parts = this.name.split(" Sec. ");
+        return parts[0];
+    }
+
+    public String getSection() {
+        String[] parts = this.name.split(" Sec. ");
+        if (parts.length > 1) {
+            return parts[1];
+        }
+        return null;
+    }
+
 }

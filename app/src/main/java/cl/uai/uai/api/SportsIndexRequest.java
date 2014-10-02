@@ -20,7 +20,7 @@ public class SportsIndexRequest extends GoogleHttpClientSpiceRequest<Sport[]> {
     @Override
     public Sport[] loadDataFromNetwork() throws Exception {
 
-        String url = String.format("http://webapi.uai.cl/inetmobile/sport_slots?token=9879");
+        String url = ApiUrl.getUrlForService("sport_slots");
 
         HttpRequest request = getHttpRequestFactory().buildGetRequest(new GenericUrl(url));
         request.setParser(new JacksonFactory().createJsonObjectParser());

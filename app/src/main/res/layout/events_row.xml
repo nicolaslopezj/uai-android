@@ -4,6 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:paddingTop="8dp"
+    android:paddingBottom="8dp"
     android:background="#fcfcfc">
 
     <TextView
@@ -85,10 +86,4 @@
         android:textColor="@android:color/white"
         android:ellipsize="end"/>
 
-    <View
-        android:id="@+id/bottomSeparatorLine"
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:layout_alignParentBottom="true"
-        android:background="#d5d5d5"/>
 </RelativeLayout>

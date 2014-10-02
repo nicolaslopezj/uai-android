@@ -70,8 +70,8 @@ public class SportsDetail extends BaseActivity {
 
         actionButton = (ActionProcessButton) findViewById(R.id.actionButton);
         actionButton.setMode(ActionProcessButton.Mode.ENDLESS);
-        actionButton.setText(sport.reserverd ? "Cancelar" : "Reservar");
-        actionButton.setCompleteText(sport.reserverd ? "Cancelado" : "Reservado");
+        actionButton.setText(sport.reserved ? "Cancelar" : "Reservar");
+        actionButton.setCompleteText(sport.reserved ? "Cancelado" : "Reservado");
 
         actionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,7 +89,7 @@ public class SportsDetail extends BaseActivity {
 
 
     private void performRequest() {
-        String action = sport.reserverd ? "cancellation" : "reservation";
+        String action = sport.reserved ? "cancellation" : "reservation";
 
         SportActionRequest request = new SportActionRequest(action, sport.id);
         String lastRequestCacheKey = request.createCacheKey();
@@ -113,7 +113,7 @@ public class SportsDetail extends BaseActivity {
             Log.v("Request Success", "Sport action success:" + response.success);
             if (response.success) {
                 actionButton.setProgress(100);
-                Integer available = sport.reserverd ? sport.available +1 : sport.available -1;
+                Integer available = sport.reserved ? sport.available +1 : sport.available -1;
                 availableTextView.setText(available + " de " + sport.capacity + " cupos disponibles");
                 progressBar.setProgress(sport.capacity - available);
             } else {

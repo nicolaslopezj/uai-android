@@ -28,7 +28,7 @@ public class Sport implements Serializable {
     public String name;
 
     @Key
-    public Boolean reserverd;
+    public Boolean reserved;
 
     @Key
     public String rsvp_until;

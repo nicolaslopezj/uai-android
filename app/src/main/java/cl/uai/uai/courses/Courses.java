@@ -183,8 +183,17 @@ public class Courses  extends BaseFragment {
             } else {
                 View rowView = inflater.inflate(R.layout.courses_row, parent, false);
                 final Course course = getCourseAtIndex(position);
-                TextView titleTextView = (TextView) rowView.findViewById(R.id.titleTextView);
-                titleTextView.setText(course.name);
+                TextView nameTextView = (TextView) rowView.findViewById(R.id.nameTextView);
+                nameTextView.setText(course.getRealName());
+
+                TextView sectionTextView = (TextView) rowView.findViewById(R.id.sectionTextView);
+                if (course.getSection() != null) {
+                    sectionTextView.setVisibility(View.VISIBLE);
+                    sectionTextView.setText("Sección " + course.getSection());
+                } else {
+                    sectionTextView.setVisibility(View.GONE);
+                }
+
 
                 rowView.setOnClickListener(new View.OnClickListener() {
 

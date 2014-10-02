@@ -3,6 +3,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
     android:background="#fcfcfc">
 
     <ImageView
@@ -18,7 +20,7 @@
         android:id="@+id/fromTextView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="0dp"
         android:layout_toLeftOf="@id/navigationNextItemImageView"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="35dp"
@@ -33,7 +35,7 @@
     <View android:layout_width="13dp"
         android:layout_height="13dp"
         android:layout_alignTop="@id/fromTextView"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="4dp"
         android:layout_marginLeft="9.5dp"
         android:background="@drawable/message_unread_circle"/>
 
@@ -68,10 +70,4 @@
         android:textColor="#666666"
         android:ellipsize="end"/>
 
-    <View
-        android:id="@+id/bottomSeparatorLine"
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:layout_alignParentBottom="true"
-        android:background="#d5d5d5"/>
 </RelativeLayout>

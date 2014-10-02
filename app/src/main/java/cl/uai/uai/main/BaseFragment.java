@@ -23,8 +23,6 @@ public class BaseFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        Main menu = (Main) activity;
-        menu.backOnMenuClick = false;
     }
 
     protected void showError(String description) {

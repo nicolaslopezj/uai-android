@@ -18,6 +18,7 @@ import cl.uai.uai.courses.Courses;
 import cl.uai.uai.events.Events;
 import cl.uai.uai.home.Home;
 import cl.uai.uai.R;
+import cl.uai.uai.main.Helper;
 import cl.uai.uai.messages.Messages;
 import cl.uai.uai.sports.Sports;
 import cl.uai.uai.welcome.WelcomeSlidePagerActivity;
@@ -37,8 +38,6 @@ public class Main extends FragmentActivity implements NavigationDrawerFragment.N
      */
     private CharSequence mTitle;
     public String identifier;
-
-    public boolean backOnMenuClick = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +60,6 @@ public class Main extends FragmentActivity implements NavigationDrawerFragment.N
         FragmentManager fragmentManager = getSupportFragmentManager();
         String[] values = getResources().getStringArray(R.array.navigation_items);
         String _identifier = values[position];
-
-        backOnMenuClick = false;
 
         if (_identifier.equals("Inicio")) {
             identifier = _identifier;
@@ -112,6 +109,7 @@ public class Main extends FragmentActivity implements NavigationDrawerFragment.N
         } else if (_identifier.equals("CERRAR SESIÓN")) {
             Intent intent = new Intent(this, WelcomeSlidePagerActivity.class);
             startActivity(intent);
+            Helper.setToken(null);
             finish();
         } else {
 

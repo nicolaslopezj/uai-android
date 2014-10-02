@@ -129,9 +129,9 @@ public class Sports extends BaseFragment {
             teacherTextView.setText(sport.led_by);
 
             TextView reservedTextView = (TextView) rowView.findViewById(R.id.reservedTextView);
-            reservedTextView.setText(sport.reserverd ? "RESERVADO" : sport.available + "/" + sport.capacity);
+            reservedTextView.setText(sport.reserved ? "RESERVADO" : sport.available + "/" + sport.capacity);
 
-            if (sport.reserverd) {
+            if (sport.reserved) {
                 hasReserved = true;
             }
 
@@ -144,7 +144,7 @@ public class Sports extends BaseFragment {
                         return;
                     }
 
-                    if  (hasReserved && !sport.reserverd) {
+                    if  (hasReserved && !sport.reserved) {
                         showError("Ya tienes una reserva");
                         return;
                     }

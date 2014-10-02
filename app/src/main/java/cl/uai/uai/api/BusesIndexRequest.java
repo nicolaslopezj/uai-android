@@ -23,7 +23,7 @@ public class BusesIndexRequest extends GoogleHttpClientSpiceRequest<Event[]> {
     @Override
     public Event[] loadDataFromNetwork() throws Exception {
 
-        String url = String.format("https://uai.lopezjullian.com/api/buses/" + location + "?app_id=3&app_secret=67lUnzMWfOJuWa8FH7UdhcJMVSTFDmXB");
+        String url = ApiUrl.getNicoUrlForService("buses/" + location);
 
         HttpRequest request = getHttpRequestFactory().buildGetRequest(new GenericUrl(url));
         request.setParser(new JacksonFactory().createJsonObjectParser());

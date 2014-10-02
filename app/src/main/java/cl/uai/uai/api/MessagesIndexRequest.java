@@ -21,7 +21,7 @@ public class MessagesIndexRequest  extends GoogleHttpClientSpiceRequest<Message[
     @Override
     public Message[] loadDataFromNetwork() throws Exception {
 
-        String url = String.format("http://webapi.uai.cl/inetmobile/messages?token=1234&since=1234");
+        String url = ApiUrl.getUrlForService("messages", "since=12-03-2013");
 
         HttpRequest request = getHttpRequestFactory().buildGetRequest(new GenericUrl(url));
         request.setParser(new JacksonFactory().createJsonObjectParser());

@@ -23,7 +23,7 @@ public class CoursesIndexRequest extends GoogleHttpClientSpiceRequest<CoursesPer
     @Override
     public CoursesPeriod[] loadDataFromNetwork() throws Exception {
 
-        String url = String.format("http://webapi.uai.cl/inetmobile/courses?token=1243");
+        String url = ApiUrl.getUrlForService("courses");
 
         HttpRequest request = getHttpRequestFactory().buildGetRequest(new GenericUrl(url));
         request.setParser(new JacksonFactory().createJsonObjectParser());

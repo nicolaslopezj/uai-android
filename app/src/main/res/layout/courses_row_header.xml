@@ -12,16 +12,9 @@
         android:layout_margin="10dp"
         android:maxLines="1"
         android:textSize="16sp"
-        android:textStyle="bold"
         android:text="2013-2"
-        android:textColor="@android:color/black"
+        android:textColor="#666666"
+        android:textStyle="bold"
         android:ellipsize="end"/>
 
-
-    <View
-        android:id="@+id/bottomSeparatorLine"
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:layout_alignParentBottom="true"
-        android:background="#d5d5d5"/>
 </RelativeLayout>

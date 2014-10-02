@@ -27,7 +27,7 @@ public class SportActionRequest extends GoogleHttpClientSpiceRequest<Success> {
     @Override
     public Success loadDataFromNetwork() throws Exception {
 
-        String url = String.format("http://webapi.uai.cl/inetmobile/sport_" + action + "?token=123412&slot_id=" + sport_id);
+        String url = ApiUrl.getUrlForService("sport_" + action, "slot_id=" + sport_id);
 
         HttpRequest request = getHttpRequestFactory().buildGetRequest(new GenericUrl(url));
         request.setParser(new JacksonFactory().createJsonObjectParser());
