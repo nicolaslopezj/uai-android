@@ -127,7 +127,7 @@ public class Messages extends BaseFragment {
             View rowView = inflater.inflate(R.layout.messages_row, parent, false);
 
             TextView fromTextView = (TextView) rowView.findViewById(R.id.fromTextView);
-            fromTextView.setText(message.from);
+            fromTextView.setText(message.getBeautifulFrom());
 
             TextView previewTextView = (TextView) rowView.findViewById(R.id.previewTextView);
             previewTextView.setText(message.body);

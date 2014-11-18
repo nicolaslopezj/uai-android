@@ -1,9 +1,13 @@
 package cl.uai.uai.api;
 
+import android.util.Log;
+
 import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.HttpRequest;
 import com.google.api.client.json.jackson.JacksonFactory;
 import com.octo.android.robospice.request.googlehttpclient.GoogleHttpClientSpiceRequest;
+
+import java.util.Arrays;
 
 import cl.uai.uai.api.json.Sport;
 import cl.uai.uai.api.json.SportArray;
@@ -26,6 +30,7 @@ public class SportsIndexRequest extends GoogleHttpClientSpiceRequest<Sport[]> {
         request.setParser(new JacksonFactory().createJsonObjectParser());
 
         SportArray sportsArray = request.execute().parseAs(SportArray.class);
+        Log.i("Sports", request.execute().parseAsString());
         return sportsArray.sport_slots;
     }
 

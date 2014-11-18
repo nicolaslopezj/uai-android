@@ -29,6 +29,7 @@ import cl.uai.uai.menu.Main;
 public class WelcomeSlideViewFragment extends BaseFragment {
 
     public static final String ARG_PAGE = "page";
+    public EditText inputEmail;
     private int mPageNumber;
 
     public ActionProcessButton actionButton;
@@ -65,7 +66,7 @@ public class WelcomeSlideViewFragment extends BaseFragment {
             case 2: rootView = (ViewGroup) inflater.inflate(R.layout.welcome_screen_page_slide_3, container, false);
                 break;
             case 3: rootView = (ViewGroup) inflater.inflate(R.layout.welcome_screen_page_slide_4, container, false);
-                final EditText inputEmail = (EditText) rootView.findViewById(R.id.inputEmail);
+                inputEmail = (EditText) rootView.findViewById(R.id.inputEmail);
                 final EditText inputPassword = (EditText) rootView.findViewById(R.id.inputPassword);
 
                 actionButton = (ActionProcessButton) rootView.findViewById(R.id.actionButton);
@@ -122,6 +123,7 @@ public class WelcomeSlideViewFragment extends BaseFragment {
             if (response.success) {
                 actionButton.setProgress(100);
                 Helper.setToken(response.token);
+                Helper.setUsername(inputEmail.getText().toString());
                 Intent intent = new Intent(getActivity(), Main.class);
                 getActivity().startActivity(intent);
                 getActivity().finish();

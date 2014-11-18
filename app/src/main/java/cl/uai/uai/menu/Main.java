@@ -10,12 +10,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebView;
 import android.widget.Toast;
 
 import cl.uai.uai.buses.Buses;
 import cl.uai.uai.configuration.Configuration;
 import cl.uai.uai.courses.Courses;
 import cl.uai.uai.events.Events;
+import cl.uai.uai.faq.Faq;
 import cl.uai.uai.home.Home;
 import cl.uai.uai.R;
 import cl.uai.uai.main.Helper;
@@ -102,6 +104,13 @@ public class Main extends FragmentActivity implements NavigationDrawerFragment.N
             fragmentManager
                     .beginTransaction()
                     .replace(R.id.container, new Buses())
+                    .commit();
+        } else if (_identifier.equals("FAQ Y REGLAMENTOS")) {
+            identifier = _identifier;
+            mTitle = "FAQ y Reglamentos";
+            fragmentManager
+                    .beginTransaction()
+                    .replace(R.id.container, new Faq())
                     .commit();
         } else if (_identifier.equals("CONFIGURACIÓN")) {
             Intent intent = new Intent(this, Configuration.class);

@@ -26,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import cl.uai.uai.R;
+import cl.uai.uai.main.Helper;
 
 /**
  * Created by nicolaslopezj on 31-07-14.
@@ -292,6 +293,8 @@ public class NavigationDrawerFragment extends Fragment {
 
             if (position == 0) {
                 rootView = inflater.inflate(R.layout.navigation_row_user, parent, false);
+                TextView usernameTextView = (TextView) rootView.findViewById(R.id.usernameTextView);
+                usernameTextView.setText(Helper.getUsername());
 
             } else if (position < values.length - 3) {
                 rootView = inflater.inflate(R.layout.navigation_row_normal, parent, false);

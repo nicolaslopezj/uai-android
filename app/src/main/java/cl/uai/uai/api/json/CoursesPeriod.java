@@ -8,9 +8,9 @@ import com.google.api.client.util.Key;
 public class CoursesPeriod {
 
     @Key
-    public String name;
+    public String periodoAcademico;
 
     @Key
-    public Course[] courses;
+    public Course[] inscripciones;
 
 }

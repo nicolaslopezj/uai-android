@@ -111,7 +111,7 @@ public class Courses  extends BaseFragment {
         public int getCount() {
             int count  = 0;
             for (CoursesPeriod period : periods) {
-                count += period.courses.length;
+                count += period.inscripciones.length;
                 count ++;
             }
             return count;
@@ -124,7 +124,7 @@ public class Courses  extends BaseFragment {
                     return true;
                 }
                 k++;
-                for (Course course : period.courses) {
+                for (Course course : period.inscripciones) {
                     if (index == k) {
                         return false;
                     }
@@ -142,7 +142,7 @@ public class Courses  extends BaseFragment {
                 }
                 k++;
 
-                for (Course course : period.courses) {
+                for (Course course : period.inscripciones) {
                     if (index == k) {
                         return null;
                     }
@@ -159,7 +159,7 @@ public class Courses  extends BaseFragment {
                     return null;
                 }
                 k++;
-                for (Course course : period.courses) {
+                for (Course course : period.inscripciones) {
                     if (index == k) {
                         return course;
                     }
@@ -178,22 +178,13 @@ public class Courses  extends BaseFragment {
                 View rowView = inflater.inflate(R.layout.courses_row_header, parent, false);
                 final CoursesPeriod period = getPeriodAtIndex(position);
                 TextView titleTextView = (TextView) rowView.findViewById(R.id.titleTextView);
-                titleTextView.setText(period.name);
+                titleTextView.setText(period.periodoAcademico);
                 return rowView;
             } else {
                 View rowView = inflater.inflate(R.layout.courses_row, parent, false);
                 final Course course = getCourseAtIndex(position);
                 TextView nameTextView = (TextView) rowView.findViewById(R.id.nameTextView);
                 nameTextView.setText(course.getRealName());
-
-                TextView sectionTextView = (TextView) rowView.findViewById(R.id.sectionTextView);
-                if (course.getSection() != null) {
-                    sectionTextView.setVisibility(View.VISIBLE);
-                    sectionTextView.setText("Sección " + course.getSection());
-                } else {
-                    sectionTextView.setVisibility(View.GONE);
-                }
-
 
                 rowView.setOnClickListener(new View.OnClickListener() {
 

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="10dp">
+
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="0dp"
+        android:maxLines="1"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="Prueba 1"
+        android:textColor="@android:color/black"
+        android:ellipsize="end"/>
+
+    <TextView
+        android:id="@+id/gradeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:maxLines="1"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:gravity="right"
+        android:text="7.0"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:background="@drawable/sport_reserved_text"
+        android:textColor="@android:color/white"
+        android:ellipsize="end"/>
+
+    <TextView
+        android:id="@+id/dateTextView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:maxLines="1"
+        android:textSize="15sp"
+        android:layout_below="@id/nameTextView"
+        android:text="01-04-2014 19:30:00"
+        android:textColor="@android:color/secondary_text_dark_nodisable"
+        android:ellipsize="end"/>
+
+</RelativeLayout>

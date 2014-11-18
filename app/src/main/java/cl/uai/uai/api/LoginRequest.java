@@ -30,7 +30,7 @@ public class LoginRequest extends GoogleHttpClientSpiceRequest<LoginResponse> {
     @Override
     public LoginResponse loadDataFromNetwork() throws Exception {
 
-        String url = ApiUrl.getLoginUrl(username, password);
+        String url = ApiUrl.getLoginUrl();
 
         String data = "{ \"user_id\": \"" + username + "\",\"password\": \"" + password + "\", \"client_token\": \"98f8095442e71a3f4f6b0c2f804fb2fc\" }";
         HttpRequest request = getHttpRequestFactory().buildPostRequest(new GenericUrl(url), ByteArrayContent.fromString("application/json", data));

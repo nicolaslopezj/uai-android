@@ -6,56 +6,32 @@
     <ImageView
         android:adjustViewBounds="true"
         android:layout_width="fill_parent"
-        android:layout_height="70dp"
+        android:layout_height="50dp"
         android:layout_gravity="center"
         android:src="@drawable/welcome_image_1"
         android:scaleType="centerCrop"/>
 
     <View
         android:layout_width="fill_parent"
-        android:layout_height="70dp"
+        android:layout_height="50dp"
         android:background="@android:color/black"
-        android:alpha="0.39"/>
-
-    <cl.uai.uai.res.CircularImageView
-        android:id="@+id/userImageView"
-        android:adjustViewBounds="true"
-        android:layout_width="44dp"
-        android:layout_height="44dp"
-        android:layout_marginLeft="13dp"
-        android:layout_marginTop="13dp"
-        android:layout_gravity="left"
-        android:src="@drawable/welcome_image_1"
-        android:scaleType="centerCrop"/>
+        android:alpha="0.39" />
 
     <TextView
-        android:id="@+id/userNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/userImageView"
-        android:layout_alignTop="@id/userImageView"
-        android:layout_marginLeft="58dp"
-        android:text="Nicolás López"
+        android:text="nilopez@aljmansod.c"
+        android:id="@+id/usernameTextView"
         android:textColor="@android:color/white"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:shadowColor="@android:color/black"
         android:shadowDx="0"
         android:shadowDy="0"
-        android:shadowRadius="2"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/userNameTextView"
-        android:layout_alignTop="@id/userNameTextView"
-        android:layout_marginTop="22dp"
-        android:text="nilopez@alumnos.uai.cl"
-        android:textColor="@android:color/white"
-        android:textSize="14sp"
-        android:shadowColor="@android:color/black"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="2"/>
+        android:shadowRadius="2"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="18dp" />
 
 </RelativeLayout>

@@ -98,6 +98,7 @@ public class Sports extends BaseFragment {
             //update your UI
             Log.v("Request Success", "Downloaded " + response.length + " sports");
             mPullToRefreshLayout.setRefreshing(false);
+            hasReserved = false;
             setSports(response);
         }
     }

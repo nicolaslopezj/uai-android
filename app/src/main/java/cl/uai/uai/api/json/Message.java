@@ -18,4 +18,16 @@ public class Message implements Serializable {
     @Key
     public String from;
 
+    public String getBeautifulFrom() {
+        String _from = from;
+        _from = _from.replace("_", " ");
+
+        _from = _from.substring(0, 1).toUpperCase()
+                + _from.substring(1, _from.length());
+
+        _from = _from.replace("uai", "UAI");
+
+        return _from;
+    }
+
 }

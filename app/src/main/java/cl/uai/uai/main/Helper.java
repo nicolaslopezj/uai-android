@@ -21,6 +21,18 @@ public class Helper {
         return preferences.getString("token", null);
     }
 
+    public static void setUsername(String username) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(Aplication.getContext());
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("username", username);
+        editor.commit();
+    }
+
+    public static String getUsername() {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(Aplication.getContext());
+        return preferences.getString("username", null);
+    }
+
     public static boolean isLoggedIn() {
         if (getToken() != null) {
             return true;
