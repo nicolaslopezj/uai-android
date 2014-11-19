@@ -20,7 +20,6 @@ public class MessagesIndexRequest  extends GoogleHttpClientSpiceRequest<Message[
 
     @Override
     public Message[] loadDataFromNetwork() throws Exception {
-
         String url = ApiUrl.getUrlForService("messages", "since=12-03-2013");
 
         HttpRequest request = getHttpRequestFactory().buildGetRequest(new GenericUrl(url));

@@ -21,4 +21,13 @@
         android:layout_centerHorizontal="true"
         android:paddingTop="2dp"
         app:radius="4dp"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/homePager"
+        android:orientation="vertical"
+        android:id="@+id/fragmentLayout"
+        />
+
 </RelativeLayout>

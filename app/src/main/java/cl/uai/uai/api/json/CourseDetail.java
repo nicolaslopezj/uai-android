@@ -22,4 +22,9 @@ public class CourseDetail {
     @Key
     public CourseDetailGrade[] grades;
 
+    public float getFinalGradeFloat() {
+        String grade = final_grade.replace(",", ".");
+        return Float.parseFloat(grade);
+    }
+
 }

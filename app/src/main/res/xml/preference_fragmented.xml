@@ -21,27 +21,23 @@
         <CheckBoxPreference
             android:key="messages_pregrado"
             android:title="Pregrado"
-            android:summary="Lorem ipsum dolor sit amet, consectetuer adipiscing elit." />
+            android:summary="Subscribirse a los mensajes de pregrado" />
         <CheckBoxPreference
             android:key="messages_eventos_uai"
             android:title="Eventos UAI"
-            android:summary="Lorem ipsum dolor sit amet, consectetuer adipiscing elit." />
+            android:summary="Subscribirse a los mensajes sobre los eventos" />
         <CheckBoxPreference
-            android:key="messages_a_estudiantiles"
+            android:key="messages_asuntos_estudiantiles"
             android:title="Asuntos Estudiantiles"
-            android:summary="Lorem ipsum dolor sit amet, consectetuer adipiscing elit." />
+            android:summary="Subscribirse a los mensajes de asuntos estudiantiles" />
         <CheckBoxPreference
             android:key="messages_deportes"
             android:title="Deportes"
-            android:summary="Lorem ipsum dolor sit amet, consectetuer adipiscing elit." />
+            android:summary="Subscribirse a los mensajes del departamento de deportes" />
         <CheckBoxPreference
             android:key="messages_finanzas"
             android:title="Finanzas"
-            android:summary="Lorem ipsum dolor sit amet, consectetuer adipiscing elit." />
-        <CheckBoxPreference
-            android:key="messages_facultades"
-            android:title="Facultades"
-            android:summary="Lorem ipsum dolor sit amet, consectetuer adipiscing elit." />
+            android:summary="Subscribirse a los mensajes del departamento de finanzas" />
 
 
     </PreferenceCategory>

@@ -42,6 +42,17 @@ public class Messages extends BaseFragment {
     protected ListView itemsListView;
     protected ItemsArrayAdapter adapter;
     public Message[] messages;
+    public int maxMessages;
+
+    public Messages(int _maxMessages) {
+        maxMessages = _maxMessages;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        adapter.notifyDataSetChanged();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -116,7 +127,7 @@ public class Messages extends BaseFragment {
 
         @Override
         public int getCount() {
-            return messages.length;
+            return messages.length > maxMessages ? maxMessages : messages.length;
         }
 
         @Override
@@ -131,6 +142,9 @@ public class Messages extends BaseFragment {
 
             TextView previewTextView = (TextView) rowView.findViewById(R.id.previewTextView);
             previewTextView.setText(message.body);
+
+            View unreadCircleView = rowView.findViewById(R.id.unreadCircleView);
+            unreadCircleView.setVisibility(message.isReaded() ? View.INVISIBLE : View.VISIBLE);
 
             rowView.setOnClickListener(new View.OnClickListener() {
 

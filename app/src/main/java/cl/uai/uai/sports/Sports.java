@@ -37,7 +37,7 @@ public class Sports extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        //mPullToRefreshLayout.setRefreshing(true);
+        mPullToRefreshLayout.setRefreshing(true);
         performRequest();
     }
 

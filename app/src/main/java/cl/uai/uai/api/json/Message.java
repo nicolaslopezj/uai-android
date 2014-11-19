@@ -4,6 +4,8 @@ import com.google.api.client.util.Key;
 
 import java.io.Serializable;
 
+import cl.uai.uai.main.Helper;
+
 /**
  * Created by nicolaslopezj on 18-08-14.
  */
@@ -28,6 +30,14 @@ public class Message implements Serializable {
         _from = _from.replace("uai", "UAI");
 
         return _from;
+    }
+
+    public boolean isReaded() {
+        return Helper.isMessageReaded(id);
+    }
+
+    public void markAsRead() {
+        Helper.setMessageReaded(id);
     }
 
 }

@@ -64,6 +64,7 @@ public class CoursesDetail extends BaseActivity {
     protected void setupView() {
         TextView finalGradeTextView = (TextView) findViewById(R.id.finalGradeTextView);
         finalGradeTextView.setText(course.final_grade);
+        finalGradeTextView.setBackgroundResource(course.getFinalGradeFloat() >= 4.0 ? R.drawable.sport_reserved_text : R.drawable.course_status_background);
 
         TextView announcementLabelTextView = (TextView) findViewById(R.id.announcementLabelTextView);
         announcementLabelTextView.setText(course.announcement);
@@ -208,6 +209,7 @@ public class CoursesDetail extends BaseActivity {
 
             TextView gradeTextView = (TextView) rowView.findViewById(R.id.gradeTextView);
             gradeTextView.setText(grade.grade);
+            gradeTextView.setBackgroundResource(grade.getGradeFloat() >= 4.0 ? R.drawable.sport_reserved_text : R.drawable.course_status_background);
 
             return rowView;
         }

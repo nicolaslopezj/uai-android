@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.LinearLayout;
 
 //import com.viewpagerindicator.CirclePageIndicator;
 
@@ -28,6 +29,7 @@ import java.util.zip.Inflater;
 import cl.uai.uai.R;
 import cl.uai.uai.api.HomeImagesRequest;
 import cl.uai.uai.main.BaseFragment;
+import cl.uai.uai.messages.Messages;
 
 /**
  * Created by nicolaslopezj on 29-07-14.
@@ -64,6 +66,10 @@ public class Home extends BaseFragment {
         mIndicator.setViewPager(mPager);
 
         performRequest();
+
+        LinearLayout fragmentLayout = (LinearLayout) layout.findViewById(R.id.fragmentLayout);
+        getFragmentManager().beginTransaction().add(fragmentLayout.getId(), new Messages(5)).commit();
+
         return layout;
     }
 

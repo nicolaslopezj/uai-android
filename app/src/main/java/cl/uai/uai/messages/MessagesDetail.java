@@ -16,6 +16,7 @@ import cl.uai.uai.api.json.Message;
 import cl.uai.uai.api.json.Sport;
 import cl.uai.uai.main.BaseActivity;
 import cl.uai.uai.main.BaseFragment;
+import cl.uai.uai.main.Helper;
 import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
 import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout;
 import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
@@ -39,6 +40,8 @@ public class MessagesDetail extends BaseActivity {
 
         TextView contentTextView = (TextView) findViewById(R.id.contentTextView);
         contentTextView.setText(message.body);
+
+        message.markAsRead();
     }
 
     @Override

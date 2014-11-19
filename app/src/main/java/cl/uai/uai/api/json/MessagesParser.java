@@ -1,5 +1,7 @@
 package cl.uai.uai.api.json;
 
+import cl.uai.uai.main.Helper;
+
 /**
  * Created by nicolaslopezj on 01-09-14.
  */
@@ -8,11 +10,11 @@ public class MessagesParser {
 
     public static Message[] parse(MessagesResponse response) {
         Message[] messages =  new Message[0];
-        messages = concat(messages, response.pregrado);
-        messages = concat(messages, response.asuntos_estudiantiles);
-        messages = concat(messages, response.deportes);
-        messages = concat(messages, response.eventos_uai);
-        messages = concat(messages, response.finanzas);
+        messages = Helper.isSubscribedTo("pregrado") ? concat(messages, response.pregrado) : messages;
+        messages = Helper.isSubscribedTo("asuntos_estudiantiles") ? concat(messages, response.asuntos_estudiantiles) : messages;
+        messages = Helper.isSubscribedTo("deportes") ? concat(messages, response.deportes) : messages;
+        messages = Helper.isSubscribedTo("eventos_uai") ? concat(messages, response.eventos_uai) : messages;
+        messages = Helper.isSubscribedTo("finanzas") ? concat(messages, response.finanzas) : messages;
         return messages;
     }
 

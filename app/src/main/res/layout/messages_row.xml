@@ -37,6 +37,7 @@
         android:layout_alignTop="@id/fromTextView"
         android:layout_marginTop="4dp"
         android:layout_marginLeft="9.5dp"
+        android:id="@+id/unreadCircleView"
         android:background="@drawable/message_unread_circle"/>
 
     <TextView
