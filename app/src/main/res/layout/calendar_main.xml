@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ptr_layout"
+    android:layout_width="match_parent" android:layout_height="match_parent">
 
     <com.alamkanak.weekview.WeekView
         android:id="@+id/weekView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        app:eventTextColor="@android:color/white"
+        app:textSize="12sp"
+        app:eventTextSize="14sp"
+        app:hourHeight="60dp"
+        app:headerColumnPadding="8dp"
+        app:headerColumnTextColor="#8f000000"
+        app:headerRowPadding="12dp"
+        app:columnGap="4dp"
+        app:noOfVisibleDays="1"
+        app:headerRowBackgroundColor="#f0f0f0"
+        app:dayBackgroundColor="#fff"
+        app:todayBackgroundColor="#1848adff"
+        app:headerColumnBackground="#ffffff"/>
 
-</RelativeLayout>
+</uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout>
