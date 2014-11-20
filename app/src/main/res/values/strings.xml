@@ -10,7 +10,6 @@
     <string-array name="navigation_items">
         <item>User</item>
         <item>Inicio</item>
-        <item>Horarios</item>
         <item>Mensajes</item>
         <item>Calendario</item>
         <item>Cursos</item>

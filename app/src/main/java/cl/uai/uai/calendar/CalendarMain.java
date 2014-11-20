@@ -1,5 +1,6 @@
 package cl.uai.uai.calendar;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.RectF;
@@ -28,10 +29,9 @@ import java.util.TimeZone;
 
 import cl.uai.uai.R;
 import cl.uai.uai.api.CalendarRequest;
-import cl.uai.uai.api.EventsIndexRequest;
 import cl.uai.uai.api.json.CalendarEvent;
-import cl.uai.uai.api.json.Event;
 import cl.uai.uai.main.BaseFragment;
+import cl.uai.uai.sports.SportsDetail;
 import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
 import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout;
 import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
@@ -88,7 +88,27 @@ public class CalendarMain extends BaseFragment implements WeekView.MonthChangeLi
 
     @Override
     public void onEventClick(WeekViewEvent weekViewEvent, RectF rectF) {
-        showError(weekViewEvent.getName());
+        long index = weekViewEvent.getId();
+
+        CalendarEvent event;
+        Intent intent;
+        if (index >= personalEvents.length) {
+            event = publicEvents[((int) index) - personalEvents.length];
+            intent = new Intent(activity, CalendarDetailPublic.class);
+
+        } else {
+            event = personalEvents[((int) index)];
+            if (event.CatType.equals("CLASE")) {
+                intent = new Intent(activity, CalendarDetailPersonal.class);
+            } else {
+                intent = new Intent(activity, CalendarDetailPublic.class);
+            }
+
+        }
+
+        intent.putExtra("Event", event);
+        activity.startActivity(intent);
+        activity.overridePendingTransition(R.anim.slidein_up, R.anim.slideout_down);
     }
 
     @Override
@@ -103,49 +123,30 @@ public class CalendarMain extends BaseFragment implements WeekView.MonthChangeLi
 
         Log.i("Calendar", "Rendering Events");
 
-        int index = 1;
+        int index = 0;
         for (CalendarEvent event : personalEvents) {
-            Calendar startTime = stringToCalendar(event.Start);
-            Calendar endTime =  stringToCalendar(event.End);
-
             if (newMonth == getMonthOfString(event.Start)) {
-                WeekViewEvent _event = new WeekViewEvent(index, event.getBeatifulName(), startTime, endTime);
-                _event.setColor(getResources().getColor(R.color.holo_blue_bright));
+                String name = event.CatType.equals("CLASE") ? event.getBeatifulName() : event.Organizer + "\n" + event.Description;
+                WeekViewEvent _event = new WeekViewEvent(index, name, event.startCalendar(), event.endCalendar());
+                int color = event.CatType.equals("CLASE") ? getResources().getColor(R.color.wallet_holo_blue_light) : getResources().getColor(R.color.holo_green_light);
+                _event.setColor(color);
                 events.add(_event);
             }
             index++;
         }
 
         for (CalendarEvent event : publicEvents) {
-            Calendar startTime = stringToCalendar(event.Start);
-            Calendar endTime =  stringToCalendar(event.End);
-
             if (newMonth == getMonthOfString(event.Start)) {
-                WeekViewEvent _event = new WeekViewEvent(index, event.Summary, startTime, endTime);
+                WeekViewEvent _event = new WeekViewEvent(index, event.Organizer + "\n" + event.Description, event.startCalendar(), event.endCalendar());
                 _event.setColor(getResources().getColor(R.color.holo_red_light));
                 events.add(_event);
             }
-
             index++;
         }
 
         Log.i("Calendar", "Showing events n: " + events.toArray().length);
 
         return events;
-    }
-
-    private Calendar stringToCalendar(String date) {
-        SimpleDateFormat form = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-        java.util.Date d1 = null;
-        Calendar tdy1;
-        try {
-            d1 = form.parse(date);
-        } catch (java.text.ParseException e) {
-            e.printStackTrace();
-        }
-        tdy1 = Calendar.getInstance();
-        tdy1.setTime(d1);
-        return tdy1;
     }
 
     private int getMonthOfString(String date) {
@@ -167,12 +168,12 @@ public class CalendarMain extends BaseFragment implements WeekView.MonthChangeLi
         CalendarRequest request = new CalendarRequest(1);
         String lastRequestCacheKey = request.createCacheKey();
 
-        spiceManager.execute(request, lastRequestCacheKey, DurationInMillis.ONE_DAY, new CalendarRequestPersonalListener());
+        spiceManager.execute(request, lastRequestCacheKey, DurationInMillis.ONE_MINUTE, new CalendarRequestPersonalListener());
 
         CalendarRequest request2 = new CalendarRequest(2);
         String lastRequestCacheKey2 = request2.createCacheKey();
 
-        spiceManager.execute(request2, lastRequestCacheKey2, DurationInMillis.ONE_DAY, new CalendarRequestPublicListener());
+        spiceManager.execute(request2, lastRequestCacheKey2, DurationInMillis.ONE_MINUTE, new CalendarRequestPublicListener());
     }
 
     private class CalendarRequestPersonalListener implements RequestListener<CalendarEvent[]> {

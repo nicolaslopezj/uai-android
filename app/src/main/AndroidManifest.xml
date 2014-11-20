@@ -32,6 +32,8 @@
         <activity android:name=".menu.Main"
                   android:configChanges="keyboardHidden|orientation|screenSize"/>
         <activity android:name=".sports.SportsDetail" android:theme="@style/sportsDialog" />
+        <activity android:name=".calendar.CalendarDetailPublic" android:theme="@style/sportsDialog" />
+        <activity android:name=".calendar.CalendarDetailPersonal" android:theme="@style/sportsDialog" />
 
         <activity
             android:name=".configuration.Configuration"

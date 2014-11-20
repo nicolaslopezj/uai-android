@@ -1,5 +1,8 @@
 package cl.uai.uai.api.json;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 import cl.uai.uai.main.Helper;
 
 /**
@@ -15,7 +18,18 @@ public class MessagesParser {
         messages = Helper.isSubscribedTo("deportes") ? concat(messages, response.deportes) : messages;
         messages = Helper.isSubscribedTo("eventos_uai") ? concat(messages, response.eventos_uai) : messages;
         messages = Helper.isSubscribedTo("finanzas") ? concat(messages, response.finanzas) : messages;
-        return messages;
+        return orderByDate(messages);
+    }
+
+    public static Message[] orderByDate(Message[] unordered) {
+        Arrays.sort(unordered, new Comparator<Message>() {
+            @Override
+            public int compare(Message message, Message message2) {
+                return message.date.compareToIgnoreCase(message2.date);
+            }
+        });
+
+        return unordered;
     }
 
     public static Message[] concat(Message[] A, Message[] B) {

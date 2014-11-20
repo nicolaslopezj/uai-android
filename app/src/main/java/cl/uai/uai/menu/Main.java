@@ -30,7 +30,6 @@ import cl.uai.uai.buses.Buses;
 import cl.uai.uai.calendar.CalendarMain;
 import cl.uai.uai.configuration.Configuration;
 import cl.uai.uai.courses.Courses;
-import cl.uai.uai.events.Events;
 import cl.uai.uai.faq.Faq;
 import cl.uai.uai.home.Home;
 import cl.uai.uai.R;
@@ -71,7 +70,7 @@ public class Main extends FragmentActivity implements NavigationDrawerFragment.N
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
-        onNavigationDrawerItemSelected(4);
+        onNavigationDrawerItemSelected(1);
         sendRegId();
     }
 
@@ -90,13 +89,6 @@ public class Main extends FragmentActivity implements NavigationDrawerFragment.N
             fragmentManager
                     .beginTransaction()
                     .replace(R.id.container, new Home())
-                    .commit();
-        } else if (_identifier.equals("Horarios")) {
-            identifier = _identifier;
-            mTitle = "Horarios";
-            fragmentManager
-                    .beginTransaction()
-                    .replace(R.id.container, new Events())
                     .commit();
         } else if (_identifier.equals("Mensajes")) {
             identifier = _identifier;
@@ -215,7 +207,7 @@ public class Main extends FragmentActivity implements NavigationDrawerFragment.N
             //update your UI
             Log.v("Request Success", "Regid action success:" + response.success);
             if (response.success) {
-                showError("Device registered");
+                //showError("Device registered");
                 Helper.setRegistrationIdSended(true);
             } else {
                 showError("Ocurrio un error al registrar el dispositivo para notificaciones");

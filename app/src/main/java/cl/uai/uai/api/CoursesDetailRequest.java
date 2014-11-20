@@ -6,7 +6,6 @@ import com.google.api.client.json.jackson.JacksonFactory;
 import com.octo.android.robospice.request.googlehttpclient.GoogleHttpClientSpiceRequest;
 
 import cl.uai.uai.api.json.CourseDetail;
-import cl.uai.uai.api.json.Event;
 
 /**
  * Created by nicolaslopezj on 18-11-14.

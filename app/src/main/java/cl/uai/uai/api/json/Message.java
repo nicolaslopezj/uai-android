@@ -20,6 +20,9 @@ public class Message implements Serializable {
     @Key
     public String from;
 
+    @Key
+    public String date;
+
     public String getBeautifulFrom() {
         String _from = from;
         _from = _from.replace("_", " ");

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Asuntos estuiantiles"
+        android:id="@+id/organizerTextView"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="18sp"
+        android:maxLines="3"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gira Nacional Taller #1"
+        android:id="@+id/descriptionTextView"
+        android:layout_below="@id/organizerTextView"
+        android:textColor="@android:color/secondary_text_light"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:maxLines="3"
+        android:layout_marginTop="6dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Garage Universidad Adolfo Ibañez"
+        android:id="@+id/summaryTextView"
+        android:layout_below="@id/descriptionTextView"
+        android:textColor="@android:color/secondary_text_light"
+        android:textSize="18sp"
+        android:maxLines="3"
+        android:layout_marginTop="6dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="15:00 - 16:00 25-09-2014"
+        android:id="@+id/dateTextView"
+        android:layout_below="@id/summaryTextView"
+        android:textColor="@android:color/secondary_text_light_nodisable"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        android:maxLines="3"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
