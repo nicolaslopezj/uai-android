@@ -22,7 +22,15 @@ public class CourseDetail {
     @Key
     public CourseDetailGrade[] grades;
 
-    public float getFinalGradeFloat() {
+    public boolean isGradeBlue() {
+        try {
+            return getFinalGradeFloat() > 4.0;
+        } catch (NumberFormatException e) {
+            return true;
+        }
+    }
+
+    private float getFinalGradeFloat() {
         String grade = final_grade.replace(",", ".");
         return Float.parseFloat(grade);
     }

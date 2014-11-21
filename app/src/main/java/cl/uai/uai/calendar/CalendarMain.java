@@ -128,7 +128,7 @@ public class CalendarMain extends BaseFragment implements WeekView.MonthChangeLi
             if (newMonth == getMonthOfString(event.Start)) {
                 String name = event.CatType.equals("CLASE") ? event.getBeatifulName() : event.Organizer + "\n" + event.Description;
                 WeekViewEvent _event = new WeekViewEvent(index, name, event.startCalendar(), event.endCalendar());
-                int color = event.CatType.equals("CLASE") ? getResources().getColor(R.color.wallet_holo_blue_light) : getResources().getColor(R.color.holo_green_light);
+                int color = event.CatType.equals("CLASE") ? getResources().getColor(R.color.blue_normal) : getResources().getColor(R.color.green_complete);
                 _event.setColor(color);
                 events.add(_event);
             }
@@ -138,7 +138,7 @@ public class CalendarMain extends BaseFragment implements WeekView.MonthChangeLi
         for (CalendarEvent event : publicEvents) {
             if (newMonth == getMonthOfString(event.Start)) {
                 WeekViewEvent _event = new WeekViewEvent(index, event.Organizer + "\n" + event.Description, event.startCalendar(), event.endCalendar());
-                _event.setColor(getResources().getColor(R.color.holo_red_light));
+                _event.setColor(getResources().getColor(R.color.red_error));
                 events.add(_event);
             }
             index++;

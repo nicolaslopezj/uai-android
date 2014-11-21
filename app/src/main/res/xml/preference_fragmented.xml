@@ -2,20 +2,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
-        android:title="Horarios de las Pantallas">
-
-        <ListPreference
-            android:key="events_location"
-            android:title="Sede"
-            android:summary="Elige la sede que quieres que muestre los horarios."
-            android:defaultValue="pregrado"
-            android:entries="@array/event_locations_names"
-            android:entryValues="@array/event_locations"/>
-
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
         android:title="Subscripciones a Mensajes">
 
         <CheckBoxPreference
