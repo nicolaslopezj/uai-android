@@ -5,10 +5,13 @@
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
+    <include layout="@layout/toolbar" android:id="@+id/toolbar"/>
+
     <FrameLayout
         android:id="@+id/infoBackgroundView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
         android:background="#fff1f1f1">
 
         <TextView

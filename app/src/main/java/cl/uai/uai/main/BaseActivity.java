@@ -2,15 +2,20 @@ package cl.uai.uai.main;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
 import com.octo.android.robospice.JacksonGoogleHttpClientSpiceService;
 import com.octo.android.robospice.SpiceManager;
 
+import cl.uai.uai.R;
+
 /**
  * Created by nicolaslopezj on 22-08-14.
  */
-public class BaseActivity extends Activity{
+public class BaseActivity extends ActionBarActivity {
 
     protected SpiceManager spiceManager = new SpiceManager(JacksonGoogleHttpClientSpiceService.class);
 
@@ -21,6 +26,11 @@ public class BaseActivity extends Activity{
 
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 
     @Override

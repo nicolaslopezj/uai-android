@@ -3,17 +3,18 @@
     <style name="AppTheme" parent="AppTheme.Base"/>
 
     <style name="AppTheme.Base" parent="Theme.AppCompat">
-        <item name="colorPrimary">@color/default_progress_bar_color</item>
-        <item name="colorPrimaryDark">@color/default_circle_indicator_fill_color</item>
+        <item name="colorPrimary">@color/grey_800</item>
+        <item name="colorPrimaryDark">#313131</item>
         <item name="android:windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
     </style>
 
-    <style name="sportsDialog" parent="android:Theme.DeviceDefault.Light.Dialog">
+    <style name="sportsDialog" parent="Theme.AppCompat.Light.Dialog">
         <item name="android:windowFrame">@null</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowContentOverlay">@null</item>
+        <item name="windowActionBar">false</item>
 
         <!--<item name="android:width">100dp</item>
         <item name="android:height">100dp</item>-->

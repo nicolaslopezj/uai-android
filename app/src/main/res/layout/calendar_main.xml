@@ -4,24 +4,27 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/ptr_layout"
+    android:background="@color/grey_white_1000"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <com.alamkanak.weekview.WeekView
         android:id="@+id/weekView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:eventTextColor="@android:color/white"
+        app:eventTextColor="@color/grey_50"
         app:textSize="12sp"
         app:eventTextSize="14sp"
         app:hourHeight="60dp"
         app:headerColumnPadding="8dp"
-        app:headerColumnTextColor="#8f000000"
+        app:headerColumnTextColor="@color/grey_black_1000"
         app:headerRowPadding="12dp"
         app:columnGap="4dp"
-        app:noOfVisibleDays="1"
-        app:headerRowBackgroundColor="#f0f0f0"
-        app:dayBackgroundColor="#fff"
-        app:todayBackgroundColor="#1848adff"
-        app:headerColumnBackground="#ffffff"/>
+        app:noOfVisibleDays="2"
+        app:headerRowBackgroundColor="@color/grey_50"
+        app:hourSeparatorColor="@color/grey_100"
+        app:todayHeaderTextColor="@color/primary"
+        app:dayBackgroundColor="@color/grey_white_1000"
+        app:todayBackgroundColor="@color/blue_grey_50"
+        app:headerColumnBackground="@color/grey_50"/>
 
 </uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout>

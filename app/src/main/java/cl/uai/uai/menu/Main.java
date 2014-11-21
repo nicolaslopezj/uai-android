@@ -1,6 +1,5 @@
 package cl.uai.uai.menu;
 
-import android.app.ActionBar;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.v4.app.FragmentActivity;
@@ -8,6 +7,9 @@ import android.support.v4.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -41,7 +43,7 @@ import cl.uai.uai.welcome.WelcomeSlidePagerActivity;
 /**
  * Created by nicolaslopezj on 31-07-14.
  */
-public class Main extends FragmentActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+public class Main extends ActionBarActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     protected SpiceManager spiceManager = new SpiceManager(JacksonGoogleHttpClientSpiceService.class);
 
@@ -55,6 +57,8 @@ public class Main extends FragmentActivity implements NavigationDrawerFragment.N
      */
     private CharSequence mTitle;
     public String identifier;
+    public Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +74,10 @@ public class Main extends FragmentActivity implements NavigationDrawerFragment.N
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         onNavigationDrawerItemSelected(1);
         sendRegId();
     }
@@ -144,6 +152,7 @@ public class Main extends FragmentActivity implements NavigationDrawerFragment.N
         } else {
 
         }
+        restoreActionBar();
     }
 
     @Override
@@ -170,10 +179,11 @@ public class Main extends FragmentActivity implements NavigationDrawerFragment.N
     }
 
     public void restoreActionBar() {
-        ActionBar actionBar = getActionBar();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-        actionBar.setDisplayShowTitleEnabled(true);
-        actionBar.setTitle(mTitle);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            Log.i("Changin Title", "to: " + mTitle);
+            actionBar.setTitle(mTitle);
+        }
     }
 
     public void sendRegId() {

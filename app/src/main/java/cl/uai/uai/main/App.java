@@ -54,6 +54,9 @@ public class App extends Activity {
             intent = new Intent(this, WelcomeSlidePagerActivity.class);
         }
 
+        startActivity(intent);
+        finish();/*
+
         if (checkPlayServices()) {
             gcm = GoogleCloudMessaging.getInstance(this);
             regid = Helper.getRegistrationId();
@@ -68,7 +71,7 @@ public class App extends Activity {
         } else {
             Log.e(TAG, "No valid Play Services APK Found");
         }
-
+*/
     }
 
     @Override

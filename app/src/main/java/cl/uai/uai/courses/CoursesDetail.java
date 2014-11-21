@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -48,7 +49,11 @@ public class CoursesDetail extends BaseActivity {
         setContentView(R.layout.courses_detail);
 
         _course = (Course) getIntent().getSerializableExtra("Course");
-        setTitle(_course.name);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setTitle(_course.name);
 
         teachersAdapter = new TeachersArrayAdapter(getBaseContext());
         teachersListView = (ListView) findViewById(R.id.teachersListView);
