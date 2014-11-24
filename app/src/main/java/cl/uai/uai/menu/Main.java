@@ -2,6 +2,7 @@ package cl.uai.uai.menu;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.content.Intent;
@@ -14,6 +15,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
@@ -77,6 +79,10 @@ public class Main extends ActionBarActivity implements NavigationDrawerFragment.
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+        {
+        }
 
         onNavigationDrawerItemSelected(1);
         sendRegId();
@@ -181,7 +187,6 @@ public class Main extends ActionBarActivity implements NavigationDrawerFragment.
     public void restoreActionBar() {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            Log.i("Changin Title", "to: " + mTitle);
             actionBar.setTitle(mTitle);
         }
     }

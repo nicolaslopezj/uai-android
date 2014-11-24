@@ -184,7 +184,7 @@ public class Courses  extends BaseFragment {
                 View rowView = inflater.inflate(R.layout.courses_row, parent, false);
                 final Course course = getCourseAtIndex(position);
                 TextView nameTextView = (TextView) rowView.findViewById(R.id.nameTextView);
-                nameTextView.setText(course.getRealName());
+                nameTextView.setText(course.getName());
 
                 rowView.setOnClickListener(new View.OnClickListener() {
 

@@ -8,7 +8,7 @@ import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -138,7 +138,6 @@ public class NavigationDrawerFragment extends Fragment {
         mDrawerToggle = new ActionBarDrawerToggle(
                 getActivity(),                    /* host Activity */
                 mDrawerLayout,                    /* DrawerLayout object */
-                R.drawable.ic_drawer,             /* nav drawer image to replace 'Up' caret */
                 R.string.navigation_drawer_open,  /* "open drawer" description for accessibility */
                 R.string.navigation_drawer_close  /* "close drawer" description for accessibility */
         ) {
@@ -258,7 +257,7 @@ public class NavigationDrawerFragment extends Fragment {
     private void showGlobalContextActionBar() {
         ActionBar actionBar = getActionBar();
         if (actionBar != null) {
-            actionBar.setTitle(R.string.app_name);
+            //actionBar.setTitle(R.string.app_name);
         }
     }
 
@@ -306,9 +305,9 @@ public class NavigationDrawerFragment extends Fragment {
                 TextView titleTextView = (TextView) rootView.findViewById(R.id.titleTextView);
                 titleTextView.setText(identifier);
                 if (identifier.equals(mCallbacks.identifier)) {
-                    titleTextView.setTypeface(null, Typeface.BOLD);
+                    titleTextView.setTextColor(getResources().getColor(R.color.primary));
                 } else {
-                    titleTextView.setTypeface(null, Typeface.NORMAL);
+                    titleTextView.setTextColor(getResources().getColor(R.color.text_dark));
                 }
 
                 /*if (activeItem == identifier) {
@@ -322,13 +321,6 @@ public class NavigationDrawerFragment extends Fragment {
 
                 TextView titleTextView = (TextView) rootView.findViewById(R.id.titleTextView);
                 titleTextView.setText(identifier);
-
-                View bottomSeparatorLine = (View) rootView.findViewById(R.id.bottomSeparatorLine);
-                if (position == values.length - 1) {
-                    bottomSeparatorLine.setAlpha(1);
-                } else {
-                    bottomSeparatorLine.setAlpha(0);
-                }
 
                 ImageView icon = (ImageView) rootView.findViewById(R.id.iconImageView);
 

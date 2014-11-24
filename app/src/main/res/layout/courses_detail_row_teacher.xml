@@ -2,16 +2,17 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/grey_white_1000"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
 
     <TextView
         android:id="@+id/roleTextView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="0dp"
         android:maxLines="1"
         android:textSize="14sp"
         android:text="Profesor"
@@ -22,13 +23,9 @@
         android:id="@+id/nameTextView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="0dp"
         android:maxLines="1"
         android:textSize="18sp"
-        android:textStyle="bold"
+        android:layout_marginTop="3dp"
         android:text="Moreno, G"
         android:textColor="@android:color/black"
         android:ellipsize="end"/>
@@ -37,12 +34,9 @@
         android:id="@+id/emailTextView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="6dp"
         android:maxLines="1"
         android:textSize="14sp"
+        android:layout_marginTop="3dp"
         android:text="nilopez@alumnos.uai.cl"
         android:textColor="@android:color/holo_blue_light"
         android:ellipsize="end"/>

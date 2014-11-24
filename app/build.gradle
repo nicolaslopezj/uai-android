@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "cl.uai.uai"
-        minSdkVersion 14
+        minSdkVersion 16
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
@@ -54,4 +54,5 @@ dependencies {
     compile 'com.github.dmytrodanylyk.android-process-button:library:1.0.1'
     compile 'com.daimajia.numberprogressbar:library:1.1@aar'
     compile 'com.github.alamkanak:android-week-view:1.1.6@aar'
+    compile 'com.github.traex.rippleeffect:library:1.2.2'
 }

@@ -41,7 +41,7 @@ public class MessagesDetail extends BaseActivity {
         message = (Message) getIntent().getSerializableExtra("Message");
 
         TextView fromTextView = (TextView) findViewById(R.id.fromTextView);
-        fromTextView.setText(message.getBeautifulFrom());
+        fromTextView.setText(message.getFrom());
 
         TextView contentTextView = (TextView) findViewById(R.id.contentTextView);
         contentTextView.setText(message.body);

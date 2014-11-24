@@ -138,13 +138,13 @@ public class Messages extends BaseFragment {
             View rowView = inflater.inflate(R.layout.messages_row, parent, false);
 
             TextView fromTextView = (TextView) rowView.findViewById(R.id.fromTextView);
-            fromTextView.setText(message.getBeautifulFrom());
+            fromTextView.setText(message.getFrom());
 
             TextView previewTextView = (TextView) rowView.findViewById(R.id.previewTextView);
             previewTextView.setText(message.body);
 
             View unreadCircleView = rowView.findViewById(R.id.unreadCircleView);
-            unreadCircleView.setVisibility(message.isReaded() ? View.INVISIBLE : View.VISIBLE);
+            unreadCircleView.setVisibility(message.isReaded() ? View.GONE : View.VISIBLE);
 
             rowView.setOnClickListener(new View.OnClickListener() {
 

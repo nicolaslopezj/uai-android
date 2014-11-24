@@ -53,7 +53,7 @@ public class CoursesDetail extends BaseActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //getSupportActionBar().setTitle(_course.name);
+        getSupportActionBar().setTitle(_course.getName());
 
         teachersAdapter = new TeachersArrayAdapter(getBaseContext());
         teachersListView = (ListView) findViewById(R.id.teachersListView);
@@ -69,7 +69,9 @@ public class CoursesDetail extends BaseActivity {
     protected void setupView() {
         TextView finalGradeTextView = (TextView) findViewById(R.id.finalGradeTextView);
         finalGradeTextView.setText(course.final_grade);
-        finalGradeTextView.setVisibility(View.VISIBLE);
+        if (!course.final_grade.equals("0")) {
+            finalGradeTextView.setVisibility(View.VISIBLE);
+        }
         finalGradeTextView.setBackgroundResource(course.isGradeBlue() ? R.drawable.sport_reserved_text : R.drawable.course_status_background);
 
         TextView statusTextView = (TextView) findViewById(R.id.statusTextView);
@@ -174,20 +176,20 @@ public class CoursesDetail extends BaseActivity {
             View rowView = inflater.inflate(R.layout.courses_detail_row_teacher, parent, false);
 
             TextView roleTextView = (TextView) rowView.findViewById(R.id.roleTextView);
-            roleTextView.setText(teacher.role);
+            roleTextView.setText(teacher.getRole());
 
             TextView nameTextView = (TextView) rowView.findViewById(R.id.nameTextView);
-            nameTextView.setText(teacher.name);
+            nameTextView.setText(teacher.getFullName());
 
             TextView emailTextView = (TextView) rowView.findViewById(R.id.emailTextView);
-            emailTextView.setText(teacher.email);
+            emailTextView.setText(teacher.getEmail());
 
             rowView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                            "mailto", teacher.email, null));
-                    startActivity(Intent.createChooser(emailIntent, "Enviar un email a " + teacher.name));
+                            "mailto", teacher.getEmail(), null));
+                    startActivity(Intent.createChooser(emailIntent, "Enviar un email a " + teacher.getFullName()));
                 }
             });
 

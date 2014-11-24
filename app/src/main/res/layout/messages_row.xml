@@ -1,74 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.andexert.library.RippleView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="8dp"
-    android:paddingBottom="8dp"
-    android:background="#fcfcfc">
+    ripple:rv_type="rectangle"
+    ripple:rv_color="@color/grey_400"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:paddingRight="16dp"
+    android:paddingLeft="16dp">
 
-    <ImageView
-        android:id="@+id/navigationNextItemImageView"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginRight="5dp"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/ic_navigation_next_item"/>
-
-    <TextView
-        android:id="@+id/fromTextView"
+    <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_toLeftOf="@id/navigationNextItemImageView"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="35dp"
-        android:layout_marginBottom="3dp"
-        android:maxLines="1"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:text="Deportes"
-        android:textColor="@android:color/black"
-        android:ellipsize="end"/>
+        android:layout_height="wrap_content">
 
-    <View android:layout_width="13dp"
-        android:layout_height="13dp"
-        android:layout_alignTop="@id/fromTextView"
-        android:layout_marginTop="4dp"
-        android:layout_marginLeft="9.5dp"
-        android:id="@+id/unreadCircleView"
-        android:background="@drawable/message_unread_circle"/>
+            <ImageView
+                android:id="@+id/navigationNextItemImageView"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_navigation_next_item"/>
 
-    <TextView
-        android:id="@+id/previewTextView"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/fromTextView"
-        android:layout_marginLeft="32dp"
-        android:layout_marginBottom="5dp"
-        android:maxLines="3"
-        android:textSize="15sp"
-        android:text="Se anuncia a los alumnos que se encuentran habilitados los nuevos lockers con el nuevo sistema de lector biometrico de retina."
-        android:textColor="@android:color/black"
-        android:ellipsize="end"
-        android:layout_toLeftOf="@+id/navigationNextItemImageView"
-        android:layout_toStartOf="@+id/navigationNextItemImageView" />
+            <View android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="10dp"
+                android:id="@+id/unreadCircleView"
+                android:background="@drawable/message_unread_circle"/>
+
+            <TextView
+                android:id="@+id/fromTextView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/unreadCircleView"
+                android:layout_toLeftOf="@id/navigationNextItemImageView"
+                android:maxLines="1"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-medium"
+                android:text="Deportes"
+                android:textColor="@android:color/black"
+                android:ellipsize="end"/>
 
 
 
-    <TextView
-        android:id="@+id/dateTextView"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/previewTextView"
-        android:layout_alignLeft="@id/previewTextView"
-        android:layout_alignRight="@id/previewTextView"
-        android:layout_marginBottom="5dp"
-        android:maxLines="3"
-        android:textSize="13sp"
-        android:text="06/05/2014 | 14:46"
-        android:textColor="#666666"
-        android:ellipsize="end"/>
+            <TextView
+                android:id="@+id/dateTextView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/fromTextView"
+                android:maxLines="3"
+                android:layout_marginTop="2dp"
+                android:textSize="13sp"
+                android:gravity="right"
+                android:text="06/05/2014 | 14:46"
+                android:textColor="#666666"
+                android:ellipsize="end"/>
 
-</RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/previewTextView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fromTextView"
+                android:maxLines="3"
+                android:layout_marginTop="6dp"
+                android:textSize="15sp"
+                android:text="Se anuncia a los alumnos que se encuentran habilitados los nuevos lockers con el nuevo sistema de lector biometrico de retina."
+                android:textColor="@android:color/black"
+                android:ellipsize="end"
+                android:layout_toLeftOf="@+id/navigationNextItemImageView"
+                android:layout_toStartOf="@+id/navigationNextItemImageView" />
+
+
+    </RelativeLayout>
+
+</com.andexert.library.RippleView>

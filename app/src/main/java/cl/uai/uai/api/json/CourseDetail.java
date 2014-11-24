@@ -24,7 +24,7 @@ public class CourseDetail {
 
     public boolean isGradeBlue() {
         try {
-            return getFinalGradeFloat() > 4.0;
+            return getFinalGradeFloat() >= 4.0;
         } catch (NumberFormatException e) {
             return true;
         }

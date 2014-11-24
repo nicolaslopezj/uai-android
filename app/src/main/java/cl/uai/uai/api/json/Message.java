@@ -5,6 +5,7 @@ import com.google.api.client.util.Key;
 import java.io.Serializable;
 
 import cl.uai.uai.main.Helper;
+import cl.uai.uai.main.StringsHelper;
 
 /**
  * Created by nicolaslopezj on 18-08-14.
@@ -18,21 +19,15 @@ public class Message implements Serializable {
     public String body;
 
     @Key
-    public String from;
+    protected String from;
 
     @Key
     public String date;
 
-    public String getBeautifulFrom() {
+    public String getFrom() {
         String _from = from;
         _from = _from.replace("_", " ");
-
-        _from = _from.substring(0, 1).toUpperCase()
-                + _from.substring(1, _from.length());
-
-        _from = _from.replace("uai", "UAI");
-
-        return _from;
+        return StringsHelper.makeItBeautiful(_from);
     }
 
     public boolean isReaded() {

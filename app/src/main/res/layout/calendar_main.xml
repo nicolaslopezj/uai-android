@@ -19,12 +19,12 @@
         app:headerColumnTextColor="@color/grey_black_1000"
         app:headerRowPadding="12dp"
         app:columnGap="4dp"
-        app:noOfVisibleDays="2"
-        app:headerRowBackgroundColor="@color/grey_50"
+        app:noOfVisibleDays="1"
+        app:headerRowBackgroundColor="@color/grey_white_1000"
         app:hourSeparatorColor="@color/grey_100"
         app:todayHeaderTextColor="@color/primary"
         app:dayBackgroundColor="@color/grey_white_1000"
         app:todayBackgroundColor="@color/blue_grey_50"
-        app:headerColumnBackground="@color/grey_50"/>
+        app:headerColumnBackground="@color/grey_white_1000"/>
 
 </uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout>

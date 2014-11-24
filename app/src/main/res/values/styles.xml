@@ -5,9 +5,12 @@
     <style name="AppTheme.Base" parent="Theme.AppCompat">
         <item name="colorPrimary">@color/grey_800</item>
         <item name="colorPrimaryDark">#313131</item>
+        <item name="colorAccent">@color/primary</item>
         <item name="android:windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
+        <item name="windowActionModeOverlay">true</item>
     </style>
+    <dimen name="topMargin">0dp</dimen>
 
     <style name="sportsDialog" parent="Theme.AppCompat.Light.Dialog">
         <item name="android:windowFrame">@null</item>

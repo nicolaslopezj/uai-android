@@ -149,6 +149,7 @@ public class WelcomeSlideViewFragment extends BaseFragment {
                 actionButton.setProgress(100);
                 Helper.setToken(response.token);
                 Helper.setUsername(inputEmail.getText().toString());
+                Helper.setPreferencesToDefaultValues();
                 Intent intent = new Intent(getActivity(), Main.class);
                 getActivity().startActivity(intent);
                 getActivity().finish();

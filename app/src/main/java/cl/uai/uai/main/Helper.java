@@ -65,6 +65,16 @@ public class Helper {
         return false;
     }
 
+    public static void setPreferencesToDefaultValues() {
+        String[] keys = {"messages_pregrado", "messages_eventos_uai", "messages_asuntos_estudiantiles", "messages_deportes", "messages_finanzas"};
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(Aplication.getContext());
+        SharedPreferences.Editor editor = preferences.edit();
+        for (int i = 0; i < keys.length; i++) {
+            editor.putBoolean(keys[i], true);
+        }
+        editor.commit();
+    }
+
     /**
      * @return Application's version code from the {@code PackageManager}.
      */

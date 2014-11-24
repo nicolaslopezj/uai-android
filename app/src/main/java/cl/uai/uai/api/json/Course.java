@@ -4,6 +4,9 @@ import com.google.api.client.util.Key;
 
 import java.io.Serializable;
 
+import cl.uai.uai.main.Helper;
+import cl.uai.uai.main.StringsHelper;
+
 /**
  * Created by nicolaslopezj on 01-09-14.
  */
@@ -13,19 +16,10 @@ public class Course implements Serializable {
     public Integer id;
 
     @Key
-    public String name;
+    protected String name;
 
-    public String getRealName() {
-        String[] parts = this.name.split(" Sec. ");
-        return parts[0];
-    }
-
-    public String getSection() {
-        String[] parts = this.name.split(" Sec. ");
-        if (parts.length > 1) {
-            return parts[1];
-        }
-        return null;
+    public String getName() {
+        return StringsHelper.makeItBeautiful(name);
     }
 
 }

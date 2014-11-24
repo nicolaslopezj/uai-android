@@ -12,6 +12,8 @@ import java.util.Calendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import cl.uai.uai.main.StringsHelper;
+
 /**
  * Created by nicolaslopezj on 19-11-14.
  */
@@ -50,9 +52,9 @@ public class CalendarEvent implements Serializable {
         Pattern p = Pattern.compile("(?i)(prof. )?(.*)");
         Matcher m = p.matcher(Organizer);
         if(m.find()) {
-            return m.group(2).trim();
+            return StringsHelper.makeItBeautiful(m.group(2).trim());
         }
-        return Organizer;
+        return StringsHelper.makeItBeautiful(Organizer);
     }
 
     public String getNameWithSection() {
@@ -73,11 +75,11 @@ public class CalendarEvent implements Serializable {
             Pattern p = Pattern.compile("(.+)(?i)sec");
             Matcher m = p.matcher(Description);
             if(m.find()) {
-                return m.group(0).replace("SEC", "").replace("sec", "").trim();
+                return StringsHelper.makeItBeautiful(m.group(0).replace("SEC", "").replace("sec", ""));
             }
-            return Description;
+            return StringsHelper.makeItBeautiful(Description);
         } else {
-            return Description;
+            return StringsHelper.makeItBeautiful(Description);
         }
     }
 

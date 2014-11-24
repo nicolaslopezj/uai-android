@@ -1,24 +1,33 @@
-<LinearLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:id="@+id/main_parent_view"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical"
-android:fitsSystemWindows="true">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
 
-    <include layout="@layout/toolbar"/>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/topMargin"
+        android:elevation="6dp"
+        android:id="@+id/statusMargin"
+        android:background="@color/grey_800"/>
+    <include android:layout_below="@id/statusMargin"
+        layout="@layout/toolbar"
+        android:id="@+id/toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent" />
 
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawer_layout"
+        android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <!-- Main layout -->
-        <FrameLayout
+        <LinearLayout
             android:id="@+id/container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/grey_white_1000">
+        </LinearLayout>
 
         <!-- Nav drawer -->
         <fragment android:id="@+id/navigation_drawer"
@@ -26,5 +35,7 @@ android:fitsSystemWindows="true">
             android:layout_height="match_parent"
             android:layout_gravity="left|start"
             android:name="cl.uai.uai.menu.NavigationDrawerFragment"/>
+
     </android.support.v4.widget.DrawerLayout>
-</LinearLayout>
+</RelativeLayout>
+

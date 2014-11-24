@@ -22,7 +22,7 @@ public class CourseDetailGrade {
 
     public boolean isBlue() {
         try {
-            return getGradeFloat() > 4.0;
+            return getGradeFloat() >= 4.0;
         } catch (NumberFormatException e) {
             return true;
         }

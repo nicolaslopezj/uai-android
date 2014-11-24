@@ -8,8 +8,15 @@ import android.preference.ListPreference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.octo.android.robospice.JacksonGoogleHttpClientSpiceService;
@@ -26,22 +33,27 @@ import cl.uai.uai.api.MessagesIndexRequest;
 import cl.uai.uai.api.json.Message;
 import cl.uai.uai.api.json.Success;
 import cl.uai.uai.main.Aplication;
+import cl.uai.uai.main.BaseActivity;
 import cl.uai.uai.main.Helper;
 
 /**
  * Created by nicolaslopezj on 30-07-14.
  */
-public class Configuration extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class Configuration extends BaseActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     protected SpiceManager spiceManager = new SpiceManager(JacksonGoogleHttpClientSpiceService.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.preference_main);
 
-        setTitle("Configuración");
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Configuración");
 
-        getFragmentManager().beginTransaction().replace(android.R.id.content, new Preferences()).commit();
+        getFragmentManager().beginTransaction().replace(R.id.content_wrapper, new Preferences()).commit();
     }
 
     @Override
