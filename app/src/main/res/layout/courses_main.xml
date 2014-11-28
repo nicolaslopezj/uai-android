@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout
+<android.support.v4.widget.SwipeRefreshLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ptr_layout"
     android:layout_width="match_parent" android:layout_height="match_parent">
@@ -12,4 +12,4 @@
         android:divider="@drawable/abc_list_divider_mtrl_alpha"
         android:background="#f3f3f3" />
 
-</uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout>
+</android.support.v4.widget.SwipeRefreshLayout>

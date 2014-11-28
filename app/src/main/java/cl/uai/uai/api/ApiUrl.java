@@ -13,7 +13,7 @@ import cl.uai.uai.main.Helper;
 public class ApiUrl {
 
     public static String getBaseUrl() {
-        return "http://webapitest.uai.cl/inetmobile/";
+        return "http://webapi.uai.cl/inetmobile/";
     }
 
     public static String getUrlForService(String service, String query) {
@@ -34,18 +34,6 @@ public class ApiUrl {
 
     public static String getLoginUrl() {
         return ApiUrl.getBaseUrl() + "login";
-    }
-
-    public static String getNicoBaseUrl() {
-        return "https://uai.lopezjullian.com/api/";
-    }
-
-    public static String getNicoUrlForService(String service, String query) {
-        return getNicoBaseUrl() + service + "?app_id=3&app_secret=67lUnzMWfOJuWa8FH7UdhcJMVSTFDmXB&" + query;
-    }
-
-    public static String getNicoUrlForService(String service) {
-        return getNicoUrlForService(service, "");
     }
 
 }

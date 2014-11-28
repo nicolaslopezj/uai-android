@@ -18,9 +18,6 @@ import cl.uai.uai.api.json.Sport;
 import cl.uai.uai.main.BaseActivity;
 import cl.uai.uai.main.BaseFragment;
 import cl.uai.uai.main.Helper;
-import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
-import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout;
-import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 
 /**
  * Created by nicolaslopezj on 22-08-14.

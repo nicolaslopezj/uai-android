@@ -55,7 +55,7 @@ public class App extends Activity {
         }
 
         startActivity(intent);
-        finish();/*
+        finish();
 
         if (checkPlayServices()) {
             gcm = GoogleCloudMessaging.getInstance(this);
@@ -71,7 +71,7 @@ public class App extends Activity {
         } else {
             Log.e(TAG, "No valid Play Services APK Found");
         }
-*/
+
     }
 
     @Override

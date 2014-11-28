@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,16 +30,13 @@ import cl.uai.uai.api.json.Message;
 import cl.uai.uai.main.BaseFragment;
 import cl.uai.uai.sports.Sports;
 import cl.uai.uai.sports.SportsDetail;
-import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
-import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout;
-import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 
 /**
  * Created by nicolaslopezj on 30-07-14.
  */
 public class Messages extends BaseFragment {
 
-    private PullToRefreshLayout mPullToRefreshLayout;
+    private SwipeRefreshLayout mPullToRefreshLayout;
     protected ListView itemsListView;
     protected ItemsArrayAdapter adapter;
     public Message[] messages;
@@ -65,17 +63,13 @@ public class Messages extends BaseFragment {
         adapter = new ItemsArrayAdapter(layout.getContext());
         itemsListView.setAdapter(adapter);
 
-        mPullToRefreshLayout = (PullToRefreshLayout) layout.findViewById(R.id.ptr_layout);
-        ActionBarPullToRefresh.from(activity)
-                .allChildrenArePullable()
-                .listener(new OnRefreshListener() {
-                    @Override
-                    public void onRefreshStarted(View view) {
-                        performRequest();
-                    }
-                })
-                .setup(mPullToRefreshLayout);
-
+        mPullToRefreshLayout = (SwipeRefreshLayout) layout.findViewById(R.id.ptr_layout);
+        mPullToRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                performRequest();
+            }
+        });
         if (savedInstanceState == null) {
             mPullToRefreshLayout.setRefreshing(true);
             performRequest();

@@ -7,6 +7,7 @@ import android.graphics.RectF;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -32,9 +33,6 @@ import cl.uai.uai.api.CalendarRequest;
 import cl.uai.uai.api.json.CalendarEvent;
 import cl.uai.uai.main.BaseFragment;
 import cl.uai.uai.sports.SportsDetail;
-import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
-import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout;
-import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 
 /**
  * Created by nicolaslopezj on 19-11-14.
@@ -43,7 +41,7 @@ public class CalendarMain extends BaseFragment implements WeekView.MonthChangeLi
         WeekView.EventClickListener, WeekView.EventLongPressListener {
 
     private WeekView mWeekView;
-    private PullToRefreshLayout mPullToRefreshLayout;
+    private SwipeRefreshLayout mPullToRefreshLayout;
     public CalendarEvent[] personalEvents;
     public CalendarEvent[] publicEvents;
 
@@ -54,16 +52,13 @@ public class CalendarMain extends BaseFragment implements WeekView.MonthChangeLi
         personalEvents = new CalendarEvent[0];
         publicEvents = new CalendarEvent[0];
 
-        mPullToRefreshLayout = (PullToRefreshLayout) layout.findViewById(R.id.ptr_layout);
-        ActionBarPullToRefresh.from(activity)
-                .allChildrenArePullable()
-                .listener(new OnRefreshListener() {
-                    @Override
-                    public void onRefreshStarted(View view) {
-                        performRequest();
-                    }
-                })
-                .setup(mPullToRefreshLayout);
+        mPullToRefreshLayout = (SwipeRefreshLayout) layout.findViewById(R.id.ptr_layout);
+        mPullToRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                performRequest();
+            }
+        });
 
         if (savedInstanceState == null) {
             mPullToRefreshLayout.setRefreshing(true);
@@ -183,7 +178,7 @@ public class CalendarMain extends BaseFragment implements WeekView.MonthChangeLi
             //update your UI
             Log.e("Request Error", e.toString());
             showError("Ocurrió un error al descargar los datos");
-            mPullToRefreshLayout.setRefreshComplete();
+            mPullToRefreshLayout.setRefreshing(false);
         }
 
         @Override
@@ -191,7 +186,7 @@ public class CalendarMain extends BaseFragment implements WeekView.MonthChangeLi
             //update your UI
             Log.i("Request Success", "Downloaded " + response.length + " calendar events");
             personalEvents = response;
-            mPullToRefreshLayout.setRefreshComplete();
+            mPullToRefreshLayout.setRefreshing(false);
             mWeekView.notifyDatasetChanged();
         }
     }
