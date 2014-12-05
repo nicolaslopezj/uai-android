@@ -103,7 +103,6 @@ public class NavigationDrawerFragment extends Fragment {
                 selectItem(position);
             }
         });
-        ;
         mDrawerListView.setAdapter(new MenuArrayAdapter(getActivity(), getResources().getStringArray(R.array.navigation_items)));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;

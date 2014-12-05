@@ -41,7 +41,6 @@ public class CalendarMain extends BaseFragment implements WeekView.MonthChangeLi
         WeekView.EventClickListener, WeekView.EventLongPressListener {
 
     private WeekView mWeekView;
-    private SwipeRefreshLayout mPullToRefreshLayout;
     public CalendarEvent[] personalEvents;
     public CalendarEvent[] publicEvents;
 
@@ -52,18 +51,7 @@ public class CalendarMain extends BaseFragment implements WeekView.MonthChangeLi
         personalEvents = new CalendarEvent[0];
         publicEvents = new CalendarEvent[0];
 
-        mPullToRefreshLayout = (SwipeRefreshLayout) layout.findViewById(R.id.ptr_layout);
-        mPullToRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                performRequest();
-            }
-        });
-
-        if (savedInstanceState == null) {
-            mPullToRefreshLayout.setRefreshing(true);
-            performRequest();
-        }
+        performRequest();
 
         // Get a reference for the week view in the layout.
         mWeekView = (WeekView) layout.findViewById(R.id.weekView);
@@ -178,7 +166,6 @@ public class CalendarMain extends BaseFragment implements WeekView.MonthChangeLi
             //update your UI
             Log.e("Request Error", e.toString());
             showError("Ocurrió un error al descargar los datos");
-            mPullToRefreshLayout.setRefreshing(false);
         }
 
         @Override
@@ -186,7 +173,6 @@ public class CalendarMain extends BaseFragment implements WeekView.MonthChangeLi
             //update your UI
             Log.i("Request Success", "Downloaded " + response.length + " calendar events");
             personalEvents = response;
-            mPullToRefreshLayout.setRefreshing(false);
             mWeekView.notifyDatasetChanged();
         }
     }

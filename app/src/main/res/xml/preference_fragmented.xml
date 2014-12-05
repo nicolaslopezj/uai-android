@@ -2,28 +2,24 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
-        android:title="Subscripciones a Mensajes">
+        android:title="Subscripciones a Notificaciones">
 
-        <CheckBoxPreference
-            android:key="messages_pregrado"
-            android:title="Pregrado"
-            android:summary="Subscribirse a los mensajes de pregrado" />
         <CheckBoxPreference
             android:key="messages_eventos_uai"
             android:title="Eventos UAI"
-            android:summary="Subscribirse a los mensajes sobre los eventos" />
+            android:summary="Recibir notificaciones sobre los eventos" />
         <CheckBoxPreference
             android:key="messages_asuntos_estudiantiles"
             android:title="Asuntos Estudiantiles"
-            android:summary="Subscribirse a los mensajes de asuntos estudiantiles" />
+            android:summary="Recibir notificaciones de asuntos estudiantiles" />
         <CheckBoxPreference
             android:key="messages_deportes"
             android:title="Deportes"
-            android:summary="Subscribirse a los mensajes del departamento de deportes" />
+            android:summary="Recibir notificaciones del departamento de deportes" />
         <CheckBoxPreference
             android:key="messages_finanzas"
             android:title="Finanzas"
-            android:summary="Subscribirse a los mensajes del departamento de finanzas" />
+            android:summary="Recibir notificaciones del departamento de finanzas" />
 
 
     </PreferenceCategory>

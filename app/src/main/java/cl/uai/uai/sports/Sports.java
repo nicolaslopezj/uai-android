@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -24,7 +25,7 @@ import cl.uai.uai.main.BaseFragment;
 /**
  * Created by nicolaslopezj on 30-07-14.
  */
-public class Sports extends BaseFragment {
+public class Sports extends BaseFragment implements AdapterView.OnItemClickListener {
 
     private SwipeRefreshLayout mPullToRefreshLayout;
     protected ListView itemsListView;
@@ -49,6 +50,7 @@ public class Sports extends BaseFragment {
 
         adapter = new ItemsArrayAdapter(layout.getContext());
         itemsListView.setAdapter(adapter);
+        itemsListView.setOnItemClickListener(this);
 
         mPullToRefreshLayout = (SwipeRefreshLayout) layout.findViewById(R.id.ptr_layout);
         mPullToRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -76,6 +78,25 @@ public class Sports extends BaseFragment {
         String lastRequestCacheKey = request.createCacheKey();
 
         spiceManager.execute(request, lastRequestCacheKey, DurationInMillis.ALWAYS_EXPIRED, new SportsIndexRequestListener());
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        final Sport sport = sports[position];
+
+        if (sport.available < 1) {
+            return;
+        }
+
+        if  (hasReserved && !sport.reserved) {
+            showError("Ya tienes una reserva");
+            return;
+        }
+
+        Intent intent = new Intent(activity, SportsDetail.class);
+        intent.putExtra("Sport", sport);
+        activity.startActivity(intent);
+        activity.overridePendingTransition(R.anim.slidein_up, R.anim.slideout_down);
     }
 
     private class SportsIndexRequestListener implements RequestListener<Sport[]> {
@@ -124,33 +145,15 @@ public class Sports extends BaseFragment {
             TextView teacherTextView = (TextView) rowView.findViewById(R.id.teacherTextView);
             teacherTextView.setText(sport.led_by);
 
+            TextView dateTextView = (TextView) rowView.findViewById(R.id.dateTextView);
+            dateTextView.setText(sport.getWhen());
+
             TextView reservedTextView = (TextView) rowView.findViewById(R.id.reservedTextView);
             reservedTextView.setText(sport.reserved ? "RESERVADO" : sport.available + "/" + sport.capacity);
 
             if (sport.reserved) {
                 hasReserved = true;
             }
-
-            rowView.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View view) {
-                    //setContent(identifier);
-                    if (sport.available < 1) {
-                        return;
-                    }
-
-                    if  (hasReserved && !sport.reserved) {
-                        showError("Ya tienes una reserva");
-                        return;
-                    }
-
-                    Intent intent = new Intent(activity, SportsDetail.class);
-                    intent.putExtra("Sport", sport);
-                    activity.startActivity(intent);
-                    activity.overridePendingTransition(R.anim.slidein_up, R.anim.slideout_down);
-                }
-            });
 
             return rowView;
         }

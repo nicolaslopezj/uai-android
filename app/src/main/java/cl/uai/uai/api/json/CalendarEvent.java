@@ -118,25 +118,11 @@ public class CalendarEvent implements Serializable {
     }
 
     public Calendar startCalendar() {
-        return stringToCalendar(Start);
+        return StringsHelper.stringToCalendar(Start, "yyyy-MM-dd'T'HH:mm:ss");
     }
 
     public Calendar endCalendar() {
-        return stringToCalendar(End);
-    }
-
-    private Calendar stringToCalendar(String date) {
-        SimpleDateFormat form = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-        java.util.Date d1 = null;
-        Calendar tdy1;
-        try {
-            d1 = form.parse(date);
-        } catch (java.text.ParseException e) {
-            e.printStackTrace();
-        }
-        tdy1 = Calendar.getInstance();
-        tdy1.setTime(d1);
-        return tdy1;
+        return StringsHelper.stringToCalendar(End, "yyyy-MM-dd'T'HH:mm:ss");
     }
 
 }

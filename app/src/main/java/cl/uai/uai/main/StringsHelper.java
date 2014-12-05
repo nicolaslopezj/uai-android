@@ -2,6 +2,12 @@ package cl.uai.uai.main;
 
 import android.util.Log;
 
+import org.jsoup.Jsoup;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  * Created by nicolaslopezj on 24-11-14.
  */
@@ -13,6 +19,27 @@ public class StringsHelper {
 
     public static String uppercase(String initial) {
         return initial.toUpperCase();
+    }
+
+    public static String stripHtmlTags(String initial) {
+        return Jsoup.parse(initial).text();
+    }
+
+    public static Date stringToDate(String date, String format) {
+        SimpleDateFormat form = new SimpleDateFormat(format);
+        try {
+            return form.parse(date);
+        } catch (java.text.ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static Calendar stringToCalendar(String date, String format) {
+        java.util.Date d1 = stringToDate(date, format);
+        Calendar tdy1 = Calendar.getInstance();
+        tdy1.setTime(d1);
+        return tdy1;
     }
 
     public static String makeItBeautiful(String initial) {

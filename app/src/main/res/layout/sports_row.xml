@@ -1,81 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.balysv.materialripple.MaterialRippleLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:rippleOverlay="false"
+    app:rippleColor="@color/grey_400"
+    app:rippleAlpha="0.2"
+    app:rippleHover="true"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:paddingBottom="12dp"
-    android:background="#ffffffff">
+    android:paddingBottom="12dp">
 
-    <ImageView
-        android:id="@+id/navigationNextItemImageView"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginRight="5dp"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/ic_navigation_next_item"/>
-
-    <TextView
-        android:id="@+id/nameTextView"
+    <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/navigationNextItemImageView"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="5dp"
-        android:maxLines="3"
-        android:textSize="18sp"
-        android:textColor="@color/text_dark"
-        android:text="Basketball"
-        android:ellipsize="end"/>
+        android:layout_height="fill_parent">
+        <ImageView
+            android:id="@+id/navigationNextItemImageView"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="5dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_navigation_next_item"/>
 
-    <TextView
-        android:id="@+id/teacherTextView"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/nameTextView"
-        android:layout_alignLeft="@id/nameTextView"
-        android:layout_alignRight="@id/nameTextView"
-        android:layout_marginBottom="5dp"
-        android:maxLines="3"
-        android:textSize="14sp"
-        android:text="Aldo Devoto Holguín"
-        android:textColor="@color/text_dark"
-        android:ellipsize="end"/>
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/navigationNextItemImageView"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="5dp"
+            android:maxLines="3"
+            android:textSize="18sp"
+            android:textColor="@color/text_dark"
+            android:text="Basketball"
+            android:ellipsize="end"/>
 
-    <TextView
-        android:id="@+id/dateTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/nameTextView"
-        android:layout_marginBottom="5dp"
-        android:layout_toLeftOf="@id/navigationNextItemImageView"
-        android:layout_marginTop="2dp"
-        android:layout_marginRight="5dp"
-        android:textSize="13sp"
-        android:gravity="right"
-        android:text="10:10"
-        android:textColor="#666666"
-        android:ellipsize="end"/>
+        <TextView
+            android:id="@+id/teacherTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nameTextView"
+            android:layout_alignLeft="@id/nameTextView"
+            android:layout_alignRight="@id/nameTextView"
+            android:layout_marginBottom="5dp"
+            android:maxLines="3"
+            android:textSize="14sp"
+            android:text="Aldo Devoto Holguín"
+            android:textColor="@color/text_dark"
+            android:ellipsize="end"/>
 
-    <TextView
-        android:id="@+id/reservedTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/dateTextView"
-        android:layout_alignRight="@id/dateTextView"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="5dp"
-        android:textSize="11sp"
-        android:gravity="right"
-        android:text="RESERVADO"
-        android:paddingTop="2dp"
-        android:paddingBottom="2dp"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:background="@drawable/sport_reserved_text"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/dateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/nameTextView"
+            android:layout_marginBottom="5dp"
+            android:layout_toLeftOf="@id/navigationNextItemImageView"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="5dp"
+            android:textSize="13sp"
+            android:gravity="right"
+            android:text="10:10"
+            android:textColor="#666666"
+            android:ellipsize="end"/>
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/reservedTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dateTextView"
+            android:layout_alignRight="@id/dateTextView"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="5dp"
+            android:textSize="11sp"
+            android:gravity="right"
+            android:text="RESERVADO"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:background="@drawable/sport_reserved_text"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+
+</com.balysv.materialripple.MaterialRippleLayout>

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -58,6 +59,15 @@ public class CoursesDetail extends BaseActivity {
         teachersAdapter = new TeachersArrayAdapter(getBaseContext());
         teachersListView = (ListView) findViewById(R.id.teachersListView);
         teachersListView.setAdapter(teachersAdapter);
+
+        teachersListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                final CourseDetailTeacher teacher = course.led_by[position];
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", teacher.getEmail(), null));
+                startActivity(Intent.createChooser(emailIntent, "Enviar un email a " + teacher.getFullName()));
+            }
+        });
 
         gradesAdapter = new GradesArrayAdapter(getBaseContext());
         gradesListView = (ListView) findViewById(R.id.gradesListView);
@@ -183,15 +193,6 @@ public class CoursesDetail extends BaseActivity {
 
             TextView emailTextView = (TextView) rowView.findViewById(R.id.emailTextView);
             emailTextView.setText(teacher.getEmail());
-
-            rowView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                            "mailto", teacher.getEmail(), null));
-                    startActivity(Intent.createChooser(emailIntent, "Enviar un email a " + teacher.getFullName()));
-                }
-            });
 
             return rowView;
         }

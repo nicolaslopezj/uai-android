@@ -5,5 +5,5 @@
     android:layout_height="match_parent"
     android:choiceMode="singleChoice"
     android:divider="@null"
-    android:background="#f3f3f3"
+    android:background="#fff"
     tools:context=".menu.NavigationDrawerFragment"/>

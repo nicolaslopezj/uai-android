@@ -1,6 +1,7 @@
 package cl.uai.uai.main;
 
 import android.app.Activity;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -54,8 +55,9 @@ public class App extends Activity {
             intent = new Intent(this, WelcomeSlidePagerActivity.class);
         }
 
-        startActivity(intent);
-        finish();
+        String ns = Context.NOTIFICATION_SERVICE;
+        NotificationManager nMgr = (NotificationManager) this.getSystemService(ns);
+        nMgr.cancel(1);
 
         if (checkPlayServices()) {
             gcm = GoogleCloudMessaging.getInstance(this);

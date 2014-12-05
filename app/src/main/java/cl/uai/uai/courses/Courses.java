@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -27,7 +28,7 @@ import cl.uai.uai.messages.MessagesDetail;
 /**
  * Created by nicolaslopezj on 01-09-14.
  */
-public class Courses  extends BaseFragment {
+public class Courses  extends BaseFragment implements AdapterView.OnItemClickListener {
 
     private SwipeRefreshLayout mPullToRefreshLayout;
     protected ListView itemsListView;
@@ -44,6 +45,7 @@ public class Courses  extends BaseFragment {
 
         adapter = new ItemsArrayAdapter(layout.getContext());
         itemsListView.setAdapter(adapter);
+        itemsListView.setOnItemClickListener(this);
 
         mPullToRefreshLayout = (SwipeRefreshLayout) layout.findViewById(R.id.ptr_layout);
         mPullToRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -75,6 +77,17 @@ public class Courses  extends BaseFragment {
         spiceManager.execute(request, lastRequestCacheKey, DurationInMillis.ALWAYS_EXPIRED, new MessagesIndexRequestListener());
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        if (!isPeriod(position)) {
+            final Course course = getCourseAtIndex(position);
+            Intent intent = new Intent(activity, CoursesDetail.class);
+            intent.putExtra("Course", course);
+            activity.startActivity(intent);
+        }
+
+    }
+
     private class MessagesIndexRequestListener implements RequestListener<CoursesPeriod[]> {
 
         @Override
@@ -92,6 +105,58 @@ public class Courses  extends BaseFragment {
             mPullToRefreshLayout.setRefreshing(false);
             setPeriods(response);
         }
+    }
+
+    public boolean isPeriod(int index) {
+        int k = 0;
+        for (CoursesPeriod period : periods) {
+            if (index == k) {
+                return true;
+            }
+            k++;
+            for (Course course : period.inscripciones) {
+                if (index == k) {
+                    return false;
+                }
+                k++;
+            }
+        }
+        return false;
+    }
+
+    public CoursesPeriod getPeriodAtIndex(int index) {
+        int k = 0;
+        for (CoursesPeriod period : periods) {
+            if (index == k) {
+                return period;
+            }
+            k++;
+
+            for (Course course : period.inscripciones) {
+                if (index == k) {
+                    return null;
+                }
+                k++;
+            }
+        }
+        return null;
+    }
+
+    public Course getCourseAtIndex(int index) {
+        int k = 0;
+        for (CoursesPeriod period : periods) {
+            if (index == k) {
+                return null;
+            }
+            k++;
+            for (Course course : period.inscripciones) {
+                if (index == k) {
+                    return course;
+                }
+                k++;
+            }
+        }
+        return null;
     }
 
     private class ItemsArrayAdapter extends ArrayAdapter<CoursesPeriod> {
@@ -112,58 +177,6 @@ public class Courses  extends BaseFragment {
             return count;
         }
 
-        public boolean isPeriod(int index) {
-            int k = 0;
-            for (CoursesPeriod period : periods) {
-                if (index == k) {
-                    return true;
-                }
-                k++;
-                for (Course course : period.inscripciones) {
-                    if (index == k) {
-                        return false;
-                    }
-                    k++;
-                }
-            }
-            return false;
-        }
-
-        public CoursesPeriod getPeriodAtIndex(int index) {
-            int k = 0;
-            for (CoursesPeriod period : periods) {
-                if (index == k) {
-                    return period;
-                }
-                k++;
-
-                for (Course course : period.inscripciones) {
-                    if (index == k) {
-                        return null;
-                    }
-                    k++;
-                }
-            }
-            return null;
-        }
-
-        public Course getCourseAtIndex(int index) {
-            int k = 0;
-            for (CoursesPeriod period : periods) {
-                if (index == k) {
-                    return null;
-                }
-                k++;
-                for (Course course : period.inscripciones) {
-                    if (index == k) {
-                        return course;
-                    }
-                    k++;
-                }
-            }
-            return null;
-        }
-
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -180,18 +193,6 @@ public class Courses  extends BaseFragment {
                 final Course course = getCourseAtIndex(position);
                 TextView nameTextView = (TextView) rowView.findViewById(R.id.nameTextView);
                 nameTextView.setText(course.getName());
-
-                rowView.setOnClickListener(new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View view) {
-                        //setContent(identifier);
-                        Intent intent = new Intent(activity, CoursesDetail.class);
-                        intent.putExtra("Course", course);
-                        activity.startActivity(intent);
-                        //activity.overridePendingTransition(R.anim.slidein_right, R.anim.fadeout);
-                    }
-                });
 
                 return rowView;
             }

@@ -1,5 +1,7 @@
 package cl.uai.uai.api.json;
 
+import android.util.Log;
+
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -11,14 +13,19 @@ import cl.uai.uai.main.Helper;
 public class MessagesParser {
 
 
-    public static Message[] parse(MessagesResponse response) {
+    public static void parse(MessagesResponse response) {
         Message[] messages =  new Message[0];
-        messages = Helper.isSubscribedTo("pregrado") ? concat(messages, response.pregrado) : messages;
-        messages = Helper.isSubscribedTo("asuntos_estudiantiles") ? concat(messages, response.asuntos_estudiantiles) : messages;
-        messages = Helper.isSubscribedTo("deportes") ? concat(messages, response.deportes) : messages;
-        messages = Helper.isSubscribedTo("eventos_uai") ? concat(messages, response.eventos_uai) : messages;
-        messages = Helper.isSubscribedTo("finanzas") ? concat(messages, response.finanzas) : messages;
-        return orderByDate(messages);
+        messages = concat(messages, response.pregrado);
+        messages = concat(messages, response.asuntos_estudiantiles);
+        messages = concat(messages, response.deportes);
+        messages = concat(messages, response.eventos_uai);
+        messages = concat(messages, response.finanzas);
+        messages = orderByDate(messages);
+
+        for (Message message1 : messages) {
+            Log.i("Adding to message list", "message: " + message1.id);
+            Helper.addToMessagesList(message1);
+        }
     }
 
     public static Message[] orderByDate(Message[] unordered) {

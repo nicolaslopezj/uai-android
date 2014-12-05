@@ -59,6 +59,8 @@
             android:hint="Email UAI"
             android:inputType="textEmailAddress"
             android:ems="10"
+            android:textColor="@color/grey_900"
+            android:textColorHint="@color/grey_700"
             android:id="@+id/inputEmail"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
@@ -71,9 +73,11 @@
             android:inputType="textPassword"
             android:ems="10"
             android:id="@+id/inputPassword"
+            android:textColor="@color/grey_900"
+            android:textColorHint="@color/grey_700"
             android:layout_below="@+id/inputEmail"
             android:layout_alignLeft="@+id/inputEmail"
-            android:layout_alignRight="@+id/inputEmail"/>
+            android:layout_alignRight="@+id/inputEmail" />
     </RelativeLayout>
 
     <TextView

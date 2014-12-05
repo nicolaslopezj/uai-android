@@ -7,8 +7,18 @@ import android.content.pm.PackageManager;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import com.snappydb.DB;
+import com.snappydb.DBFactory;
+import com.snappydb.SnappydbException;
+
+import org.apache.commons.lang3.ArrayUtils;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+
+import cl.uai.uai.api.json.Message;
 
 /**
  * Created by nicolaslopezj on 31-07-14.
@@ -48,16 +58,6 @@ public class Helper {
         return preferences.getBoolean("messages_" + sender, true);
     }
 
-    public static void setMessageReaded(String id) {
-        TinyDB tinydb = new TinyDB(Aplication.getContext());
-        tinydb.putBoolean("message_readed_" + id, true);
-    }
-
-    public static boolean isMessageReaded(String id) {
-        TinyDB tinydb = new TinyDB(Aplication.getContext());
-        return tinydb.getBoolean("message_readed_" + id);
-    }
-
     public static boolean isLoggedIn() {
         if (getToken() != null) {
             return true;
@@ -66,13 +66,36 @@ public class Helper {
     }
 
     public static void setPreferencesToDefaultValues() {
-        String[] keys = {"messages_pregrado", "messages_eventos_uai", "messages_asuntos_estudiantiles", "messages_deportes", "messages_finanzas"};
+        setMessageTutorialViewed(false);
+        setLastMessagesRequestDate("");
+        setMessagesList(new Message[0]);
+        String[] keys = {"messages_eventos_uai", "messages_asuntos_estudiantiles", "messages_deportes", "messages_finanzas"};
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(Aplication.getContext());
         SharedPreferences.Editor editor = preferences.edit();
         for (int i = 0; i < keys.length; i++) {
             editor.putBoolean(keys[i], true);
         }
         editor.commit();
+    }
+
+    public static String getOpenMessageId() {
+        TinyDB tinydb = new TinyDB(Aplication.getContext());
+        return tinydb.getString("open_message_id");
+    }
+
+    public static void setOpenMessageId(String messageId) {
+        TinyDB tinydb = new TinyDB(Aplication.getContext());
+        tinydb.putString("open_message_id", messageId);
+    }
+
+    public static void setMessageTutorialViewed(Boolean viewed) {
+        TinyDB tinydb = new TinyDB(Aplication.getContext());
+        tinydb.putBoolean("message_tutorial_viewed", viewed);
+    }
+
+    public static Boolean isMessageTutorialViewed() {
+        TinyDB tinydb = new TinyDB(Aplication.getContext());
+        return tinydb.getBoolean("message_tutorial_viewed");
     }
 
     /**
@@ -126,6 +149,106 @@ public class Helper {
             return "";
         }
         return registrationId;
+    }
+
+    public static void setLastMessagesRequestDate(String date) {
+        TinyDB tinydb = new TinyDB(Aplication.getContext());
+        tinydb.putString("last_messages_request_date", date);
+    }
+
+    public static String getLastMessageRequestDate() {
+        TinyDB tinydb = new TinyDB(Aplication.getContext());
+        return tinydb.getString("last_messages_request_date").equals("") ? "2012-12-02T13:27:29" : tinydb.getString("last_messages_request_date");
+    }
+
+    public static void addToMessagesList(Message message) {
+        if (!isInMessagesList(message)) {
+            Message[] messages = getMessagesList();
+            messages = concatMessages(messages, new Message[]{message});
+            setMessagesList(messages);
+        }
+    }
+
+    public static Message[] concatMessages(Message[] A, Message[] B) {
+        int aLen = A.length;
+        int bLen = B.length;
+        Message[] C= new Message[aLen+bLen];
+        System.arraycopy(A, 0, C, 0, aLen);
+        System.arraycopy(B, 0, C, aLen, bLen);
+        return C;
+    }
+
+    public static boolean isInMessagesList(Message message) {
+        Message[] messages = getMessagesList();
+        for (Message message1 : messages) {
+            if (message1.id.equals(message.id)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void readMessage(Message message) {
+        Message[] messages = getMessagesList();
+        for (int i = 0; i < messages.length; i++) {
+            if (messages[i].id.equals(message.id)) {
+                messages[i].readed = true;
+            }
+        }
+        setMessagesList(messages);
+    }
+
+    public static void deleteMessage(Message message) {
+        Message[] messages = getMessagesList();
+        for (int i = 0; i < messages.length; i++) {
+            if (messages[i].id.equals(message.id)) {
+                messages[i].deleted = true;
+            }
+        }
+        setMessagesList(messages);
+    }
+
+    public static void setMessagesList(Message[] messages) {
+        try {
+            DB snappydb = DBFactory.open(Aplication.getContext()); //create or open an existing databse using the default name
+            snappydb.put("messages", messages);
+        } catch (SnappydbException e) {
+            Log.e("DB ERROR", e.getStackTrace().toString());
+        }
+    }
+
+    public static Message[] getNotDeletedMessagesList() {
+        try {
+            DB snappydb = DBFactory.open(Aplication.getContext()); //create or open an existing databse using the default name
+            Message[] messages  =  snappydb.getArray("messages", Message.class);// get array of string
+            snappydb.close();
+            Message[] finalMessages = messages;
+
+            for (int i = 0; i < messages.length; i++) {
+                if (messages[i].deleted) {
+                    finalMessages = ArrayUtils.removeElement(finalMessages, messages[i]);
+                }
+            }
+
+            return finalMessages;
+        } catch (SnappydbException e) {
+            Log.e("DB ERROR", e.getStackTrace().toString());
+        }
+
+        return new Message[0];
+    }
+
+    public static Message[] getMessagesList() {
+        try {
+            DB snappydb = DBFactory.open(Aplication.getContext()); //create or open an existing databse using the default name
+            Message[] messages  =  snappydb.getArray("messages", Message.class);// get array of string
+            snappydb.close();
+            return messages;
+        } catch (SnappydbException e) {
+            Log.e("DB ERROR", e.getStackTrace().toString());
+        }
+
+        return new Message[0];
     }
 
 }

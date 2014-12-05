@@ -14,6 +14,7 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 import cl.uai.uai.R;
 import cl.uai.uai.main.App;
+import cl.uai.uai.main.Helper;
 
 /**
  * Created by nicolaslopezj on 19-11-14.
@@ -54,9 +55,11 @@ public class GcmIntentService extends IntentService {
                 // If it's a regular GCM message, do some work.
             } else if (GoogleCloudMessaging.
                     MESSAGE_TYPE_MESSAGE.equals(messageType)) {
-                Log.i(TAG, "Completed work @ " + SystemClock.elapsedRealtime());
                 // Post notification of received message.
-                sendNotification(extras.getString("title"));
+                sendNotification(extras.getString("message"));
+                if (!extras.getString("message_id").equals("")) {
+                    Helper.setOpenMessageId(extras.getString("message_id"));
+                }
                 Log.i(TAG, "Received: " + extras.toString());
             }
         }
@@ -76,7 +79,7 @@ public class GcmIntentService extends IntentService {
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.drawable.message_unread_circle)
+                        .setSmallIcon(R.drawable.uai_icon)
                         .setContentTitle("Universidad Adolfo Ibáñez")
                         .setStyle(new NotificationCompat.BigTextStyle()
                                 .bigText(msg))

@@ -9,7 +9,6 @@
         android:id="@+id/itemsListView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:divider="@drawable/abc_list_divider_mtrl_alpha"
-        android:background="#f3f3f3" />
+        android:background="#fff" />
 
 </android.support.v4.widget.SwipeRefreshLayout>

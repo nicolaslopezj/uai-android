@@ -1,33 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.balysv.materialripple.MaterialRippleLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:rippleOverlay="false"
+    app:rippleColor="@color/grey_400"
+    app:rippleAlpha="0.2"
+    app:rippleHover="true"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:paddingTop="20dp"
     android:paddingBottom="20dp"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:background="#fff">
+    android:paddingRight="16dp">
 
-    <ImageView
-        android:id="@+id/navigationNextItemImageView"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/ic_navigation_next_item"/>
-
-    <TextView
-        android:id="@+id/nameTextView"
+    <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:maxLines="3"
-        android:textSize="16sp"
-        android:text="Algebra Lineal"
-        android:textColor="@color/text_dark"
-        android:ellipsize="end"
-        android:layout_toLeftOf="@+id/navigationNextItemImageView"
-        android:layout_toStartOf="@+id/navigationNextItemImageView" />
+        android:layout_height="fill_parent">
 
-</RelativeLayout>
+        <ImageView
+            android:id="@+id/navigationNextItemImageView"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_navigation_next_item"/>
+
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:maxLines="3"
+            android:textSize="16sp"
+            android:text="Algebra Lineal"
+            android:textColor="@color/text_dark"
+            android:ellipsize="end"
+            android:layout_toLeftOf="@+id/navigationNextItemImageView"
+            android:layout_toStartOf="@+id/navigationNextItemImageView" />
+
+    </RelativeLayout>
+
+</com.balysv.materialripple.MaterialRippleLayout>

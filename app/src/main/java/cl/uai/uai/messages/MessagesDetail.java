@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -37,13 +38,19 @@ public class MessagesDetail extends BaseActivity {
 
         message = (Message) getIntent().getSerializableExtra("Message");
 
+        Helper.readMessage(message);
+
         TextView fromTextView = (TextView) findViewById(R.id.fromTextView);
         fromTextView.setText(message.getFrom());
 
-        TextView contentTextView = (TextView) findViewById(R.id.contentTextView);
-        contentTextView.setText(message.body);
+        TextView titleTextView = (TextView) findViewById(R.id.titleTextView);
+        titleTextView.setText(message.title);
 
-        message.markAsRead();
+        TextView dateTextView = (TextView) findViewById(R.id.dateTextView);
+        dateTextView.setText(message.getDateParsed());
+
+        WebView contentWebView = (WebView) findViewById(R.id.contentWebView);
+        contentWebView.loadData(message.body, "text/html", null);
     }
 
     @Override

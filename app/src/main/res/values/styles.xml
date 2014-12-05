@@ -2,13 +2,18 @@
 
     <style name="AppTheme" parent="AppTheme.Base"/>
 
-    <style name="AppTheme.Base" parent="Theme.AppCompat">
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light">
         <item name="colorPrimary">@color/grey_800</item>
         <item name="colorPrimaryDark">#313131</item>
         <item name="colorAccent">@color/primary</item>
         <item name="android:windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="windowActionModeOverlay">true</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+    </style>
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@android:color/white</item>
     </style>
     <dimen name="topMargin">0dp</dimen>
 
@@ -22,6 +27,17 @@
         <!--<item name="android:width">100dp</item>
         <item name="android:height">100dp</item>-->
 
+    </style>
+
+    <style name="CustomShowcaseTheme" parent="ShowcaseView">
+        <item name="sv_backgroundColor">@color/blue_grey_600</item>
+        <item name="sv_showcaseColor">@color/blue_grey_900</item>
+        <item name="sv_buttonText">Ok</item>
+        <item name="sv_titleTextAppearance">@style/CustomTitle</item>
+    </style>
+
+    <style name="CustomTitle" parent="TextAppearance.ShowcaseView.Title">
+        <item name="android:textColor">@color/blue_grey_100</item>
     </style>
 
 </resources>

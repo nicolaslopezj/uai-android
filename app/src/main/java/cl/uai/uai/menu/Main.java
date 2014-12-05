@@ -27,8 +27,11 @@ import com.octo.android.robospice.request.listener.RequestListener;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+import cl.uai.uai.api.MessagesIndexRequest;
+import cl.uai.uai.api.MessagesShowRequest;
 import cl.uai.uai.api.PushSubscriptionRequest;
 import cl.uai.uai.api.SportActionRequest;
+import cl.uai.uai.api.json.Message;
 import cl.uai.uai.api.json.Success;
 import cl.uai.uai.buses.Buses;
 import cl.uai.uai.calendar.CalendarMain;
@@ -39,6 +42,7 @@ import cl.uai.uai.home.Home;
 import cl.uai.uai.R;
 import cl.uai.uai.main.Helper;
 import cl.uai.uai.messages.Messages;
+import cl.uai.uai.messages.MessagesDetail;
 import cl.uai.uai.sports.Sports;
 import cl.uai.uai.welcome.WelcomeSlidePagerActivity;
 
@@ -80,12 +84,32 @@ public class Main extends ActionBarActivity implements NavigationDrawerFragment.
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-        {
-        }
-
         onNavigationDrawerItemSelected(1);
         sendRegId();
+
+        if (!Helper.getOpenMessageId().equals("")) {
+            setSupportProgressBarIndeterminateVisibility(true);
+
+            MessagesShowRequest request = new MessagesShowRequest(Helper.getOpenMessageId());
+            String lastRequestCacheKey = request.createCacheKey();
+
+            spiceManager.execute(request, lastRequestCacheKey, DurationInMillis.ONE_DAY, new RequestListener<Message>() {
+                @Override
+                public void onRequestFailure(SpiceException spiceException) {
+                    Log.e("Request Error", "Error downloading message");
+                }
+
+                @Override
+                public void onRequestSuccess(Message message) {
+                    Log.v("Request Success", "Downloaded message");
+                    Intent intent = new Intent(Main.this, MessagesDetail.class);
+                    intent.putExtra("Message", message);
+                    startActivity(intent);
+                }
+            });
+
+            Helper.setOpenMessageId("");
+        }
     }
 
     @Override

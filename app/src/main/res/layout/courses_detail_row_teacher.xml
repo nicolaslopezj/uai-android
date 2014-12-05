@@ -1,44 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.balysv.materialripple.MaterialRippleLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:rippleOverlay="false"
+    app:rippleColor="@color/grey_400"
+    app:rippleAlpha="0.2"
+    app:rippleHover="true"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey_white_1000"
     android:paddingTop="20dp"
     android:paddingBottom="20dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp">
 
-    <TextView
-        android:id="@+id/roleTextView"
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:textSize="14sp"
-        android:text="Profesor"
-        android:textColor="@android:color/secondary_text_dark_nodisable"
-        android:ellipsize="end"/>
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/nameTextView"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:textSize="18sp"
-        android:layout_marginTop="3dp"
-        android:text="Moreno, G"
-        android:textColor="@android:color/black"
-        android:ellipsize="end"/>
+        <TextView
+            android:id="@+id/roleTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textSize="14sp"
+            android:text="Profesor"
+            android:textColor="@android:color/secondary_text_dark_nodisable"
+            android:ellipsize="end"/>
 
-    <TextView
-        android:id="@+id/emailTextView"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:textSize="14sp"
-        android:layout_marginTop="3dp"
-        android:text="nilopez@alumnos.uai.cl"
-        android:textColor="@android:color/holo_blue_light"
-        android:ellipsize="end"/>
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textSize="18sp"
+            android:layout_marginTop="3dp"
+            android:text="Moreno, G"
+            android:textColor="@android:color/black"
+            android:ellipsize="end"/>
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/emailTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textSize="14sp"
+            android:layout_marginTop="3dp"
+            android:text="nilopez@alumnos.uai.cl"
+            android:textColor="@android:color/holo_blue_light"
+            android:ellipsize="end"/>
+
+    </LinearLayout>
+
+</com.balysv.materialripple.MaterialRippleLayout>
