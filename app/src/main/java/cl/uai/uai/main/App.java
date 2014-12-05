@@ -67,13 +67,12 @@ public class App extends Activity {
                 Log.i(TAG, "Registering to GCM");
                 registerInBackground();
             }
-
-            startActivity(intent);
-            finish();
         } else {
             Log.e(TAG, "No valid Play Services APK Found");
         }
 
+        startActivity(intent);
+        finish();
     }
 
     @Override
@@ -95,7 +94,7 @@ public class App extends Activity {
                         PLAY_SERVICES_RESOLUTION_REQUEST).show();
             } else {
                 Log.e("Check Play Services", "This device is not supported.");
-                finish();
+                //finish();
             }
             return false;
         }

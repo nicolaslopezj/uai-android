@@ -64,7 +64,6 @@ public class Messages extends BaseFragment implements AdapterView.OnItemClickLis
     public void onResume() {
         messages = Helper.getNotDeletedMessagesList();
         adapter.notifyDataSetChanged();
-
         super.onResume();
 
         if (maxMessages > 10 && !Helper.isMessageTutorialViewed()) {
@@ -72,7 +71,7 @@ public class Messages extends BaseFragment implements AdapterView.OnItemClickLis
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    ShowcaseView sv = new ShowcaseView.Builder(getActivity(), false)
+                    ShowcaseView sv = new ShowcaseView.Builder(activity, false)
                             //.setTarget(viewTarget)
                             .setContentTitle("Instrucciones")
                             .hideOnTouchOutside()
@@ -95,7 +94,7 @@ public class Messages extends BaseFragment implements AdapterView.OnItemClickLis
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         messages = Helper.getNotDeletedMessagesList();
 
-        final View layout = inflater.inflate(R.layout.messages_main, null);
+        View layout = inflater.inflate(R.layout.messages_main, null);
 
         itemsListView = (ListView) layout.findViewById(R.id.itemsListView);
 
@@ -212,10 +211,6 @@ public class Messages extends BaseFragment implements AdapterView.OnItemClickLis
 
             final Message message = messages[position];
             View rowView = inflater.inflate(R.layout.messages_row, parent, false);
-
-            MaterialRippleLayout.on(rowView)
-                    .rippleColor(R.color.grey_400)
-                    .create();
 
             TextView fromTextView = (TextView) rowView.findViewById(R.id.fromTextView);
             fromTextView.setText(message.getFrom());

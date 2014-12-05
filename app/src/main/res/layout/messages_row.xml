@@ -16,8 +16,7 @@
 
         <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:focusable="false">
+            android:layout_height="fill_parent">
             <ImageView
                 android:id="@+id/navigationNextItemImageView"
                 android:layout_width="25dp"
@@ -46,8 +45,6 @@
                 android:text="Deportes"
                 android:textColor="@android:color/black"
                 android:ellipsize="end"/>
-
-
 
             <TextView
                 android:id="@+id/dateTextView"
@@ -79,7 +76,4 @@
                 android:layout_toLeftOf="@+id/navigationNextItemImageView"
                 android:layout_toStartOf="@+id/navigationNextItemImageView" />
         </RelativeLayout>
-
-
-
 </com.balysv.materialripple.MaterialRippleLayout>

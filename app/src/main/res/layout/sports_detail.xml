@@ -67,7 +67,7 @@
     <com.dd.processbutton.iml.ActionProcessButton
         android:id="@+id/actionButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_below="@id/progressBar"
         android:layout_alignLeft="@id/nameTextView"
         android:layout_alignRight="@id/nameTextView"

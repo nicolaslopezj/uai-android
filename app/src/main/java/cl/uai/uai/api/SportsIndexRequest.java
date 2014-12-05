@@ -30,7 +30,6 @@ public class SportsIndexRequest extends GoogleHttpClientSpiceRequest<Sport[]> {
         request.setParser(new JacksonFactory().createJsonObjectParser());
 
         SportArray sportsArray = request.execute().parseAs(SportArray.class);
-        Log.i("Sports", request.execute().parseAsString());
         return sportsArray.sport_slots;
     }
 

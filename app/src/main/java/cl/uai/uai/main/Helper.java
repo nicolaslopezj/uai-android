@@ -220,7 +220,7 @@ public class Helper {
     public static Message[] getNotDeletedMessagesList() {
         try {
             DB snappydb = DBFactory.open(Aplication.getContext()); //create or open an existing databse using the default name
-            Message[] messages  =  snappydb.getArray("messages", Message.class);// get array of string
+            Message[] messages = snappydb.getArray("messages", Message.class);// get array of string
             snappydb.close();
             Message[] finalMessages = messages;
 
